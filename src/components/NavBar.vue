@@ -1,5 +1,5 @@
 <template>
-    <div id="nav" class="bg-gray-800 h-32 w-full font-sans text-xl text-white font-medium flex" >
+    <div id="nav" class="bg-black h-16 w-full flex" >
         <Home/>
         <Links/>
     </div>

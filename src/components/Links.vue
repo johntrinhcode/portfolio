@@ -1,5 +1,5 @@
 <template>
-    <div id="links" class="bg-gray-600 h-full w-full font-sans text-xl text-white font-medium" >
+    <div id="links" class="bg-black h-full w-full font-body text-xl text-white font-medium" >
         <div id="link-items">
             <a href="#" v-for="item in links">
                 {{ item }}
@@ -13,7 +13,7 @@ export default {
   name: 'links',
   data: function () {
     return {
-      links: ['code', 'photography', 'about me', 'contact', 'resume']
+      links: ['code', 'photography', 'about me', 'contact', 'resume'],
     };
   },
 };
