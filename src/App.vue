@@ -1,23 +1,30 @@
 <template>
   <div id="app">
-        <h1 class="font-bold text-2xl text-blue-300">Example Project</h1>
-
+        <NavBar id='nav'/>
+        <p class="font-head text-6xl">Title</p>
+        <p class="font-body">Testing, testing, 1 2 3 ... Whoa</p>
   </div>
 </template>
 
 <script>
+import NavBar from './components/NavBar.vue';
+
 export default {
   name: 'app',
+  components: {
+    NavBar,
+  },
 };
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+* {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }
 </style>
