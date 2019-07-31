@@ -5,7 +5,8 @@
     separator: ':',
     theme: {
       fontFamily: {
-          'body': ['"Object Sans"', 'sans-serif'],
+          'body': ['"Object Sans Regular"', 'sans-serif'],
+          'head': ['"Object Sans Heavy"', 'sans-serif'],
       },
     },
     variants: {

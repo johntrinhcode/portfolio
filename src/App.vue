@@ -1,7 +1,8 @@
 <template>
   <div id="app">
         <NavBar id='nav'/>
-        <p class="font-body">Testing, testing, 1 2 3 ... Q</p>
+        <p class="font-head text-6xl">Title</p>
+        <p class="font-body">Testing, testing, 1 2 3 ... Whoa</p>
   </div>
 </template>
 
