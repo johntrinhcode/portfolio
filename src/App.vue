@@ -1,18 +1,30 @@
 <template>
   <div id="app">
-        <NavBar id='nav'/>
-        <p class="font-head text-6xl">Title</p>
-        <p class="font-body">Testing, testing, 1 2 3 ... Whoa</p>
+    <!-- nav bar -->
+    <!-- <NavBar id='nav'/> -->
+
+    <!-- extra stuff -->
+    <!--
+    <p class="font-head text-6xl">Title</p>
+    <p class="font-body">big boi test</p>
+        -->
+
+    <!-- router links -->
+    <router-link to="/home">HOME</router-link>
+    <router-link to="/code">CODE</router-link>
+    <router-link to="/photo">PHOTO</router-link>
+    <router-link to="/about">ABOUT</router-link>
+
+    <!-- route outlet -->
+    <!-- component matched by the route will render here -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import NavBar from './components/NavBar.vue';
-
 export default {
   name: 'app',
   components: {
-    NavBar,
   },
 };
 </script>
@@ -26,5 +38,5 @@ export default {
         font-size: 100%;
         vertical-align: baseline;
         background: transparent;
-    }
+  }
 </style>
