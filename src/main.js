@@ -16,7 +16,6 @@ Vue.use(VueRouter);
 // Each route should map to a component. The "component" can
 // either be an actual component constructor created via
 // `Vue.extend()`, or just a component options object.
-// We'll talk about nested routes later.
 const routes = [
   { path: '/home', component: Home },
   { path: '/code', component: Code },
