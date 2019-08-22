@@ -1,5 +1,5 @@
 <template>
-    <div>photo</div>
+    <div id='photo'>photo</div>
 </template>
 
 <script>
