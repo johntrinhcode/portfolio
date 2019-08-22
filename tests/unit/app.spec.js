@@ -48,7 +48,7 @@ describe('app tests', () => {
     expect(wrapper.find(Code).exists()).toBe(false);
   })  
 
-  it('route to about', () => {
+  it('route to photo', () => {
     const router = new VueRouter({ routes });
 
     const wrapper = mount(App, {
@@ -64,7 +64,7 @@ describe('app tests', () => {
     expect(wrapper.find(Code).exists()).toBe(false);
   }) 
 
-  it('route to about', () => {
+  it('route to code', () => {
     const router = new VueRouter({ routes });
 
     const wrapper = mount(App, {
