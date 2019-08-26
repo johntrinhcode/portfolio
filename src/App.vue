@@ -10,7 +10,7 @@
         -->
 
     <!-- router links -->
-    <router-link to="/home" id='home-link'>HOME</router-link>
+    <router-link to="/" id='home-link'>HOME</router-link>
     <router-link to="/code" id='code-link'>CODE</router-link>
     <router-link to="/photo" id='photo-link'>PHOTO</router-link>
     <router-link to="/about" id='about-link'>ABOUT</router-link>
