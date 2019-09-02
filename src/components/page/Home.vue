@@ -1,13 +1,13 @@
 <template>
-    <div id="home" class="bg-black h-full w-32" >
-        <p class="font-body text-xl text-white font-medium">HOME</p>
+    <div id="home" class="flex content-center flex-wrap w-full" >
+        <p class="font-head text-6xl text-black font-medium">HOME</p>
     </div>
 </template>
 
 <script>
-  export default {
-    name: 'Home',
-  }
+export default {
+  name: 'Home',
+};
 </script>
 
 <style scoped>
