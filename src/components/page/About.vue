@@ -1,25 +1,36 @@
 <template>
     <div id="about">
         <div class="flex content-center w-full h-full justify-left" >
-            <div class="w-1/6"></div>
             <div id="about-content-header" class="w-1/6 font-body text-huge font-bold text-black">
-                Hi!
+                Hi,
             </div>
-            <div id="about-content-body" class="font-body font-thin text-tiny ">
-                <div class="h-16"></div>
-                <div class="border-solid border-2 border-black p-1">
-                <div class="w-3/4 h-16">
-                        My name is John Trinh. I like to make things. This is a website where I showcase examples of the work
-                        that I do with code, photography and art.
+        </div>
+        <div class="flex content-center w-full h-full justify-left p-1">
+            <div class="w-1/12 h-full">
+            </div>
+            <div id="about-content-body" class="font-body font-thin text-tiny w-2/4 h-full">
+                <div>
+                    My name is John Trinh. I like to create. Whether it's applications as a full-stack software engineer, 
+                    portraits and lookbooks as a photographer or an illustration as an artist, I really am looking to 
+                    create good work that people enjoy.
                 </div>
-
-                 <div class="w-3/4">
-                    Thanks for taking a look!
+                <div class="flex flex-wrap h-24 content-center">
+                    <div>
+                        This is a website where I showcase examples of the work
+                        that I do with code, photography and art. Enjoy your stay.
+                    </div>
                 </div>
+                <div id="contact">
+                    <div class="font-body text-4xl font-bold">
+                        Looking to reach me?
+                    </div>
+                    <div>
+                        <font-awesome-icon :icon="['fab', 'instagram']" size="3x" />
+                        <font-awesome-icon :icon="['fab', 'facebook']" size="3x" />
+                    </div>
                 </div>
 
             </div>
-
         </div>
     </div>
 </template>
