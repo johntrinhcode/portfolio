@@ -24,9 +24,9 @@
                     <div class="font-body text-4xl font-bold">
                         Looking to reach me?
                     </div>
-                    <div>
-                        <font-awesome-icon :icon="['fab', 'instagram']" size="3x" />
-                        <font-awesome-icon :icon="['fab', 'facebook']" size="3x" />
+                    <div class="social-links pr-4">
+                        <a class="pr-2" href="https://www.instagram.com/__jt.self/" target="_blank"><font-awesome-icon :icon="['fab', 'instagram']" size="3x" /></a>
+                        <a class="pr-2" href="https://www.google.com" target="_blank"    ><font-awesome-icon :icon="['fab', 'facebook']" size="3x" /></a>
                     </div>
                 </div>
 
