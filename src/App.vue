@@ -15,8 +15,11 @@
           <div id="link" class="inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsAbout }" v-on:click="updateCurrentRoute">
           <router-link to="/about" id='about-link'>ABOUT</router-link>
           </div>
-        </div>
-      <router-view></router-view>
+      </div>
+
+      <transition name="fade" mode="out-in">
+      <router-view/>
+      </transition>
 
       </div>
 
@@ -78,4 +81,36 @@ export default {
         vertical-align: baseline;
         background: transparent;
   }
+
+
+.fade-enter-active {
+  animation: fade-in .5s;
+}
+
+.fade-leave-active {
+  animation: fade-out .5s;
+}
+
+
+@keyframes fade-in {
+  0% {
+    opacity: 0%;
+    transform: translateX(50px)
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 100%;
+  }
+
+  100% {
+    opacity: 0%;
+    transform: translateX(50px);
+  }
+}
 </style>
