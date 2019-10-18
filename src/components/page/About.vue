@@ -10,8 +10,8 @@
             </div>
             <div id="about-content-body" class="font-body font-thin text-tiny w-2/4 h-full">
                 <div>
-                    My name is John Trinh. I like to create. Whether it's applications as a full-stack software engineer, 
-                    portraits and lookbooks as a photographer or an illustration as an artist, I really am looking to 
+                    My name is John Trinh. I like to create. Whether it's applications as a full-stack software engineer,
+                    portraits and lookbooks as a photographer or an illustration as an artist, I really am looking to
                     create good work that people enjoy.
                 </div>
                 <div class="flex flex-wrap h-24 content-center">

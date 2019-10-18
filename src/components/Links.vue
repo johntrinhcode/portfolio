@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'links',
-  data: function () {
+  data() {
     return {
       links: ['code', 'photography', 'about me', 'contact', 'resume'],
     };
