@@ -2,17 +2,19 @@
   <div id="app">
     <div class="flex flex-wrap w-full h-screen font-head text-xs">
       <div class="w-3/5 h-screen p-12">
-        <div id="links">  
-          <div id="link" class="inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsHome }" v-on:click="updateCurrentRoute">
-          <router-link to="/" id='home-link' >HOME</router-link>
-          </div>
-          <div id="link" class="inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsCode }" v-on:click="updateCurrentRoute">
+        <div id="links">
+          <transition name="fade" mode="out-in">
+            <div id="home-link" class="link inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsHome }" v-on:click="updateCurrentRoute">
+              <router-link to="/" id='home-link' >HOME</router-link>
+            </div>
+          </transition>
+          <div id="code-link" class="link inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsCode }" v-on:click="updateCurrentRoute">
           <router-link to="/code" id='code-link'>CODE</router-link>
           </div>
-          <div id="link" class="inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsPhoto }" v-on:click="updateCurrentRoute">
+          <div id="photo-link" class="link inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsPhoto }" v-on:click="updateCurrentRoute">
           <router-link to="/photo" id='photo-link'>PHOTO</router-link>
           </div>
-          <div id="link" class="inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsAbout }" v-on:click="updateCurrentRoute">
+          <div id="about-link" class="link inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsAbout }" v-on:click="updateCurrentRoute">
           <router-link to="/about" id='about-link'>ABOUT</router-link>
           </div>
       </div>
@@ -39,35 +41,35 @@ export default {
   name: 'app',
   components: {
   },
-  data: function () {
+  data() {
     return {
       routeIsHome: true,
       routeIsCode: false,
       routeIsPhoto: false,
       routeIsAbout: false,
-    }
+    };
   },
   methods: {
-    checkHome: function () {
-      return this.$route.path == "/"
+    checkHome() {
+      return this.$route.path == '/';
     },
-    checkCode: function () {
-      return this.$route.path == "/code"
+    checkCode() {
+      return this.$route.path == '/code';
     },
-    checkPhoto: function () {
-      console.log()
-      return this.$route.path == "/photo"
+    checkPhoto() {
+      console.log();
+      return this.$route.path == '/photo';
     },
-    checkAbout: function () {
-      return this.$route.path == "/about"
+    checkAbout() {
+      return this.$route.path == '/about';
     },
-    updateCurrentRoute: function () {
-      this.routeIsHome = this.checkHome()
-      this.routeIsCode = this.checkCode()
-      this.routeIsPhoto = this.checkPhoto()
-      this.routeIsAbout = this.checkAbout()
-    }
-  }
+    updateCurrentRoute() {
+      this.routeIsHome = this.checkHome();
+      this.routeIsCode = this.checkCode();
+      this.routeIsPhoto = this.checkPhoto();
+      this.routeIsAbout = this.checkAbout();
+    },
+  },
 };
 </script>
 
@@ -82,8 +84,15 @@ export default {
         background: transparent;
   }
 
+.link {
+  transition: .5s;
+}
 
 .fade-enter-active {
+  opacity: 0%;
+  -webkit-animation: fade-in .5s;
+  -moz-animation: fade-in .5s;
+  -o-animation: fade-in .5s;
   animation: fade-in .5s;
 }
 
@@ -94,22 +103,45 @@ export default {
 
 @keyframes fade-in {
   0% {
-    opacity: 0%;
+    opacity: 0;
     transform: translateX(50px)
   }
 
   100% {
-    opacity: 100%;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateX(50px)
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
 @keyframes fade-out {
   0% {
-    opacity: 100%;
+    opacity: 1;
   }
 
   100% {
-    opacity: 0%;
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
     transform: translateX(50px);
   }
 }

@@ -1,6 +1,6 @@
-import App from '@/App.vue';
 import { shallowMount, mount, createLocalVue } from '@vue/test-utils';
 import VueRouter from 'vue-router';
+import App from '@/App.vue';
 import routes from '@/routes.js';
 
 import Home from '@/components/page/Home.vue';
@@ -14,7 +14,7 @@ localVue.use(VueRouter);
 describe('app tests', () => {
   it('does not have a created hook', () => {
     expect(typeof App.created).toBe('undefined');
-  })
+  });
 
   it('route to home', () => {
     const router = new VueRouter({ routes });
@@ -22,7 +22,7 @@ describe('app tests', () => {
     const wrapper = mount(App, {
       localVue,
       router,
-      attachToDocument: true
+      attachToDocument: true,
     });
 
     router.push('/');
@@ -30,7 +30,7 @@ describe('app tests', () => {
     expect(wrapper.find(About).exists()).toBe(false);
     expect(wrapper.find(Photo).exists()).toBe(false);
     expect(wrapper.find(Code).exists()).toBe(false);
-  })
+  });
 
   it('route to about', () => {
     const router = new VueRouter({ routes });
@@ -38,7 +38,7 @@ describe('app tests', () => {
     const wrapper = mount(App, {
       localVue,
       router,
-      attachToDocument: true
+      attachToDocument: true,
     });
 
     router.push('/about');
@@ -46,7 +46,7 @@ describe('app tests', () => {
     expect(wrapper.find(About).exists()).toBe(true);
     expect(wrapper.find(Photo).exists()).toBe(false);
     expect(wrapper.find(Code).exists()).toBe(false);
-  })  
+  });
 
   it('route to photo', () => {
     const router = new VueRouter({ routes });
@@ -54,7 +54,7 @@ describe('app tests', () => {
     const wrapper = mount(App, {
       localVue,
       router,
-      attachToDocument: true
+      attachToDocument: true,
     });
 
     router.push('/photo');
@@ -62,7 +62,7 @@ describe('app tests', () => {
     expect(wrapper.find(About).exists()).toBe(false);
     expect(wrapper.find(Photo).exists()).toBe(true);
     expect(wrapper.find(Code).exists()).toBe(false);
-  }) 
+  });
 
   it('route to code', () => {
     const router = new VueRouter({ routes });
@@ -70,7 +70,7 @@ describe('app tests', () => {
     const wrapper = mount(App, {
       localVue,
       router,
-      attachToDocument: true
+      attachToDocument: true,
     });
 
     router.push('/code');
@@ -78,5 +78,5 @@ describe('app tests', () => {
     expect(wrapper.find(About).exists()).toBe(false);
     expect(wrapper.find(Photo).exists()).toBe(false);
     expect(wrapper.find(Code).exists()).toBe(true);
-  }) 
-})
+  });
+});
