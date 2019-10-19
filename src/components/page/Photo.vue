@@ -1,18 +1,21 @@
 <template>
     <div id="photo" class="content-center w-full h-full overflow-scroll" >
         <div class="flex">
-            <div v-for="image in row1" v-bind:key="image" class="bg-grey-300 w-1/4 overflow-hidden image-container">
-                <img :src="image" class="image">
+            <div v-for="image in row1" v-bind:key="image" class="bg-grey-300 w-1/4 overflow-hidden relative container cursor-pointer">
+              <img :src="image" class="block w-full h-full object-cover">
+              <div v-on:click="changeImage(image)" class="overlay bg-black"></div>
             </div>
         </div>
         <div class="flex">
-            <div v-for="image in row2" v-bind:key="image" class="bg-grey-300 w-1/4 overflow-hidden image-container">
-                <img :src="image">
+            <div v-for="image in row2" v-bind:key="image" class="bg-grey-300 w-1/4 overflow-hidden relative container cursor-pointer">
+              <img :src="image" class="block w-full h-full object-cover">
+              <div v-on:click="changeImage(image)" class="overlay bg-black"></div>
             </div>
         </div>
         <div class="flex">
-            <div v-for="image in row3" v-bind:key="image" class="bg-grey-300 w-1/4 overflow-hidden image-container">
-                <img :src="image">
+            <div v-for="image in row3" v-bind:key="image" class="bg-grey-300 w-1/4 overflow-hidden relative container cursor-pointer">
+              <img :src="image" class="block w-full h-full object-cover">
+              <div v-on:click="changeImage(image)" class="overlay bg-black"></div>
             </div>
 
         </div>
@@ -22,9 +25,6 @@
 </template>
 
 <script>
-/*
-There might be a better implementation of this grid using a for loop that extracts image locations from an array.
-*/
 export default {
   data() {
     return {
@@ -42,6 +42,12 @@ export default {
         require('@/assets/photography/r3-3.jpg')],
     };
   },
+  props: {
+    changeImage: Function
+  },
+  methods: {
+
+  }
 };
 </script>
 
@@ -53,4 +59,22 @@ export default {
     background: transparent;
 }
 
+.container:hover .overlay {
+  opacity: .25;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  opacity: 0;
+
+  height: 100%;
+  width: 100%;
+
+  transition: .5s ease;
+}
 </style>

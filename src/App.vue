@@ -20,14 +20,16 @@
       </div>
 
       <transition name="fade" mode="out-in">
-      <router-view/>
+      <router-view :changeImage="updateImage"/>
       </transition>
 
       </div>
 
-
       <div class="w-2/5 h-screen">
-          <div id="bg-image" style="background-image: url(bg_image.jpg);" class="bg-no-repeat bg-cover w-full h-full overlay"></div>
+        <transition name="fade-image" mode="out-in">
+          <div id="bg-image" v-bind:style="{backgroundImage: 'url(' +this.imageUrl +')'}" :key="this.imageUrl" class="bg-no-repeat bg-cover w-full h-full"></div>
+        </transition>
+
       </div>
     </div>
 
@@ -39,14 +41,15 @@
 <script>
 export default {
   name: 'app',
-  components: {
-  },
   data() {
     return {
-      routeIsHome: true,
-      routeIsCode: false,
-      routeIsPhoto: false,
-      routeIsAbout: false,
+      routeIsHome: this.checkHome(),
+      routeIsCode: this.checkCode(),
+      routeIsPhoto: this.checkPhoto(),
+      routeIsAbout: this.checkAbout(),
+
+      imageUrl: 'bg_image.jpg',
+      
     };
   },
   methods: {
@@ -69,6 +72,9 @@ export default {
       this.routeIsPhoto = this.checkPhoto();
       this.routeIsAbout = this.checkAbout();
     },
+    updateImage(url) {
+      this.imageUrl = url
+    }
   },
 };
 </script>
@@ -100,6 +106,17 @@ export default {
   animation: fade-out .5s;
 }
 
+.fade-image-enter-active {
+  opacity: 0%;
+  -webkit-animation: fade-image-in .5s;
+  -moz-animation: fade-image-in .5s;
+  -o-animation: fade-image-in .5s;
+  animation: fade-image-in .5s;
+}
+
+.fade-image-leave-active {
+  animation: fade-image-out .5s;
+}
 
 @keyframes fade-in {
   0% {
@@ -143,6 +160,48 @@ export default {
   100% {
     opacity: 0;
     transform: translateX(50px);
+  }
+}
+
+/*---*/
+@keyframes fade-image-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade-image-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-image-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+@-webkit-keyframes fade-image-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }
 </style>
