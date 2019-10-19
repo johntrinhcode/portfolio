@@ -27,7 +27,7 @@
 
 
       <div class="w-2/5 h-screen">
-          <div id="bg-image" style="background-image: url(bg_image.jpg);" class="bg-no-repeat bg-cover w-full h-full"></div>
+          <div id="bg-image" style="background-image: url(bg_image.jpg);" class="bg-no-repeat bg-cover w-full h-full overlay"></div>
       </div>
     </div>
 
@@ -51,17 +51,17 @@ export default {
   },
   methods: {
     checkHome() {
-      return this.$route.path == '/';
+      return this.$route.path === '/';
     },
     checkCode() {
-      return this.$route.path == '/code';
+      return this.$route.path === '/code';
     },
     checkPhoto() {
       console.log();
-      return this.$route.path == '/photo';
+      return this.$route.path === '/photo';
     },
     checkAbout() {
-      return this.$route.path == '/about';
+      return this.$route.path === '/about';
     },
     updateCurrentRoute() {
       this.routeIsHome = this.checkHome();
