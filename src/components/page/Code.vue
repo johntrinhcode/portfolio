@@ -6,7 +6,10 @@
 
 <script>
 export default {
-
+    name: 'Code',
+    props: {
+        changeImage: Function
+    },
 };
 </script>
 
