@@ -4,17 +4,17 @@
       <div class="w-3/5 h-screen p-12">
         <div id="links">
           <transition name="fade" mode="out-in">
-            <div id="home-link" class="link inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsHome }" v-on:click="updateCurrentRoute">
+            <div id="home-link" class="link inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsHome }" v-on:click="clickHome">
               <router-link to="/" id='home-link' >HOME</router-link>
             </div>
           </transition>
-          <div id="code-link" class="link inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsCode }" v-on:click="updateCurrentRoute">
+          <div id="code-link" class="link inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsCode }" v-on:click="clickCode">
           <router-link to="/code" id='code-link'>CODE</router-link>
           </div>
-          <div id="photo-link" class="link inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsPhoto }" v-on:click="updateCurrentRoute">
+          <div id="photo-link" class="link inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsPhoto }" v-on:click="clickPhoto">
           <router-link to="/photo" id='photo-link'>PHOTO</router-link>
           </div>
-          <div id="about-link" class="link inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsAbout }" v-on:click="updateCurrentRoute">
+          <div id="about-link" class="link inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsAbout }" v-on:click="clickAbout">
           <router-link to="/about" id='about-link'>ABOUT</router-link>
           </div>
       </div>
@@ -27,7 +27,7 @@
 
       <div class="w-2/5 h-screen">
         <transition name="fade-image" mode="out-in">
-          <div id="bg-image" v-bind:style="{backgroundImage: 'url(' +this.imageUrl +')'}" :key="this.imageUrl" class="bg-no-repeat bg-cover w-full h-full"></div>
+          <div id="bg-image" v-bind:style="{backgroundImage: 'url(' +this.currentImageUrl +')'}" :key="this.currentImageUrl" class="bg-no-repeat bg-cover w-full h-full"></div>
         </transition>
 
       </div>
@@ -43,37 +43,44 @@ export default {
   name: 'app',
   data() {
     return {
-      routeIsHome: this.checkHome(),
-      routeIsCode: this.checkCode(),
-      routeIsPhoto: this.checkPhoto(),
-      routeIsAbout: this.checkAbout(),
+      routeIsHome: this.$route.path === '/',
+      routeIsCode: this.$route.path === '/code',
+      routeIsPhoto: this.$route.path === '/photo',
+      routeIsAbout: this.$route.path === '/about',
 
-      imageUrl: 'bg_image.jpg',
+      currentImageUrl: 'bg_image.jpg',
+      homeImageUrl: 'bg_image.jpg',
+      codeImageUrl: 'bg_image.jpg',
+      photoImageUrl: 'bg_image.jpg',
+      aboutImageUrl: 'bg_image.jpg',
       
     };
   },
   methods: {
-    checkHome() {
-      return this.$route.path === '/';
+    clickHome() {
+      this.updateCurrentRoute()
+      this.updateImage(this.homeImageUrl)
     },
-    checkCode() {
-      return this.$route.path === '/code';
+    clickCode() {
+      this.updateCurrentRoute()
+      this.updateImage(this.codeImageUrl)
     },
-    checkPhoto() {
-      console.log();
-      return this.$route.path === '/photo';
+    clickPhoto() {
+      this.updateCurrentRoute()
+      this.updateImage(this.photoImageUrl)
     },
-    checkAbout() {
-      return this.$route.path === '/about';
+    clickAbout() {
+      this.updateCurrentRoute()
+      this.updateImage(this.aboutImageUrl)
     },
     updateCurrentRoute() {
-      this.routeIsHome = this.checkHome();
-      this.routeIsCode = this.checkCode();
-      this.routeIsPhoto = this.checkPhoto();
-      this.routeIsAbout = this.checkAbout();
+      this.routeIsHome = this.$route.path === '/'
+      this.routeIsCode = this.$route.path === '/code'
+      this.routeIsPhoto = this.$route.path === '/photo'
+      this.routeIsAbout = this.$route.path === '/about'
     },
     updateImage(url) {
-      this.imageUrl = url
+      this.currentImageUrl = url
     }
   },
 };

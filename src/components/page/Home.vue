@@ -7,6 +7,9 @@
 <script>
 export default {
   name: 'Home',
+  props: {
+    changeImage: Function
+  },
 };
 </script>
 

@@ -37,6 +37,10 @@
 
 <script>
 export default {
+    name: 'About',
+    props: {
+        changeImage: Function
+    },
 
 };
 </script>
