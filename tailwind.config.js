@@ -5,7 +5,7 @@ module.exports = {
   separator: ':',
   theme: {
     fontFamily: {
-      body: ['"Object Sans Regular"', 'sans-serif'],
+      body: ['Helvetica', 'sans-serif'],
       head: ['"Object Sans Heavy"', 'sans-serif'],
     },
     fontSize: {
