@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <div class="flex flex-wrap w-full h-screen font-head text-xs">
-      <div class="w-3/5 h-screen p-12">
-        <div id="links">
+    <div class="flex flex-wrap w-full h-full font-head text-xs">
+      <div class="w-3/6 h-screen overflow-scroll">
+        <div id="links" class="h-16 fixed pt-6 z-50 bg-white w-3/6 p-12">
           <transition name="fade" mode="out-in">
             <div id="home-link" class="link inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsHome }" v-on:click="clickHome">
               <router-link to="/" id='home-link' >HOME</router-link>
@@ -19,22 +19,27 @@
           </div>
       </div>
 
-      <transition name="fade" mode="out-in">
-      <router-view :changeImage="updateImage"/>
-      </transition>
+      <!-- route outlet -->
+      <!-- component matched by the route will render here -->
+
+      <div class="pt-16 p-12">
+        <transition name="fade" mode="out-in">
+          <router-view :changeImage="updateImage"/>
+        </transition>
+      </div>
 
       </div>
 
-      <div class="w-2/5 h-screen">
-        <transition name="fade-image" mode="out-in">
-          <div id="bg-image" v-bind:style="{backgroundImage: 'url(' +this.currentImageUrl +')'}" :key="this.currentImageUrl" class="bg-no-repeat bg-cover w-full h-full"></div>
-        </transition>
-
+      <div class="w-3/6 h-screen">
+        <!-- cache components that have already been loaded at least once -->
+        <keep-alive>
+          <transition name="fade-image" mode="out-in">
+            <div id="bg-image" v-bind:style="{backgroundImage: 'url(' +this.currentImageUrl +')'}" :key="this.currentImageUrl" class="bg-no-repeat bg-cover w-full h-full"></div>
+          </transition>
+        </keep-alive>
       </div>
     </div>
 
-      <!-- route outlet -->
-      <!-- component matched by the route will render here -->
   </div>
 </template>
 
@@ -53,7 +58,8 @@ export default {
       codeImageUrl: 'bg_image.jpg',
       photoImageUrl: 'bg_image.jpg',
       aboutImageUrl: 'bg_image.jpg',
-      
+
+      loaded: false,
     };
   },
   methods: {
@@ -81,8 +87,13 @@ export default {
     },
     updateImage(url) {
       this.currentImageUrl = url
+    },
+    onLoaded() {
+      this.loaded = true
+      console.log('ok')
     }
   },
+
 };
 </script>
 
@@ -210,5 +221,12 @@ export default {
   100% {
     opacity: 0;
   }
+}
+
+
+/* make scrollbar transparent */
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
 }
 </style>

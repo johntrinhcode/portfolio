@@ -46,12 +46,12 @@ export default {
     changeImage: Function
   },
   methods: {
-
-  }
+  },
 };
 </script>
 
 <style scoped>
+
 
 /* make scrollbar transparent */
 ::-webkit-scrollbar {
