@@ -1,232 +1,152 @@
 <template>
-  <div id="app">
-    <div class="flex flex-wrap w-full h-full font-head text-xs">
-      <div class="w-3/6 h-screen overflow-scroll">
-        <div id="links" class="h-16 fixed pt-6 z-50 bg-white w-3/6 p-12">
-          <transition name="fade" mode="out-in">
-            <div id="home-link" class="link inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsHome }" v-on:click="clickHome">
-              <router-link to="/" id='home-link' >HOME</router-link>
+  <div id="app" class="w-screen h-screen">
+    <transition name="fade" appear>
+      <video muted autoplay loop class="fixed opacity-75">
+          <source src="./assets/video/city.mp4" type="video/mp4">
+      </video>
+    </transition>
+
+
+
+
+
+    <div  class="fixed flex w-full h-full items-center z-10">
+        <div class="w-full flex flex-col items-center my-auto">
+            <div>
+                <transition appear name='landing-heading'>
+                    <h1 id="landing-header" @click="goLanding" class="text-center text-white text-4xl font-body font-bold cursor-pointer">JOHN TRINH</h1>
+                </transition>
             </div>
+
+            <div id="landing-buttons" class="flex text-xs font-body">
+
+                <transition appear name='landing-button'>
+                    <button @click="goCode" class="nav-link p-1 mx-4 text-white">CODE</button>       
+                </transition>
+                <transition appear name='landing-button'>
+                    <button @click="goPhoto" class="nav-link p-1 mx-4 text-white">PHOTO</button>
+                </transition>
+                <transition appear name='landing-button'>
+                    <button @click="goContact" class="nav-link p-1 mx-4 text-white">CONTACT</button>
+                </transition>
+            </div>
+
+        </div>
+        <!-- Route here -->
+        <div class="w-auto h-full bg-gray-900">
+          <transition name="grow">
+            <Content
+              v-show="!isLanding" />
           </transition>
-          <div id="code-link" class="link inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsCode }" v-on:click="clickCode">
-          <router-link to="/code" id='code-link'>CODE</router-link>
-          </div>
-          <div id="photo-link" class="link inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsPhoto }" v-on:click="clickPhoto">
-          <router-link to="/photo" id='photo-link'>PHOTO</router-link>
-          </div>
-          <div id="about-link" class="link inline p-2 hover:text-red-700" v-bind:class="{ 'text-red-700':routeIsAbout }" v-on:click="clickAbout">
-          <router-link to="/about" id='about-link'>ABOUT</router-link>
-          </div>
-      </div>
-
-      <!-- route outlet -->
-      <!-- component matched by the route will render here -->
-
-      <div class="pt-16 p-12">
-        <transition name="fade" mode="out-in">
-          <router-view :changeImage="updateImage"/>
-        </transition>
-      </div>
-
-      </div>
-
-      <div class="w-3/6 h-screen">
-        <!-- cache components that have already been loaded at least once -->
-        <keep-alive>
-          <transition name="fade-image" mode="out-in">
-            <div id="bg-image" v-bind:style="{backgroundImage: 'url(' +this.currentImageUrl +')'}" :key="this.currentImageUrl" class="bg-no-repeat bg-cover w-full h-full"></div>
-          </transition>
-        </keep-alive>
-      </div>
+        </div>
     </div>
-
   </div>
 </template>
 
 <script>
+import Content from './components/page/Content';
+
 export default {
   name: 'app',
+  components: {
+    Content
+  },
   data() {
     return {
-      routeIsHome: this.$route.path === '/',
-      routeIsCode: this.$route.path === '/code',
-      routeIsPhoto: this.$route.path === '/photo',
-      routeIsAbout: this.$route.path === '/about',
-
-      currentImageUrl: 'bg_image.jpg',
-      homeImageUrl: 'bg_image.jpg',
-      codeImageUrl: 'bg_image.jpg',
-      photoImageUrl: 'bg_image.jpg',
-      aboutImageUrl: 'bg_image.jpg',
-
-      loaded: false,
-    };
-  },
-  methods: {
-    clickHome() {
-      this.updateCurrentRoute()
-      this.updateImage(this.homeImageUrl)
-    },
-    clickCode() {
-      this.updateCurrentRoute()
-      this.updateImage(this.codeImageUrl)
-    },
-    clickPhoto() {
-      this.updateCurrentRoute()
-      this.updateImage(this.photoImageUrl)
-    },
-    clickAbout() {
-      this.updateCurrentRoute()
-      this.updateImage(this.aboutImageUrl)
-    },
-    updateCurrentRoute() {
-      this.routeIsHome = this.$route.path === '/'
-      this.routeIsCode = this.$route.path === '/code'
-      this.routeIsPhoto = this.$route.path === '/photo'
-      this.routeIsAbout = this.$route.path === '/about'
-    },
-    updateImage(url) {
-      this.currentImageUrl = url
-    },
-    onLoaded() {
-      this.loaded = true
-      console.log('ok')
+      currentView: "landing"
     }
   },
-
+  computed: {
+    isLanding() {
+      return this.currentView === "landing";
+    }
+  },
+  methods: {
+    goCode() {
+      this.currentView = "code";
+    },
+    goPhoto() {
+      this.currentView = "photo";
+    },
+    goContact() {
+      this.currentView = "contact";
+    },
+    goLanding() {
+      this.currentView = "landing";
+    },
+     isMobile() {
+      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        console.log('not mobile!')
+        return true
+      } else {
+        return false
+      }
+    },
+  },
 };
 </script>
 
 <style>
 * {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        outline: 0;
-        font-size: 100%;
-        vertical-align: baseline;
-        background: transparent;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
   }
 
-.link {
-  transition: .5s;
+/* Transitions */
+/* fade */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 
-.fade-enter-active {
-  opacity: 0%;
-  -webkit-animation: fade-in .5s;
-  -moz-animation: fade-in .5s;
-  -o-animation: fade-in .5s;
-  animation: fade-in .5s;
+/* grow */
+.grow-enter-active, .grow-leave-active {
+  transition: all 1s ease;
+  max-width: 1000px;
 }
 
-.fade-leave-active {
-  animation: fade-out .5s;
+.grow-enter, .grow-leave-to {
+  max-width: 0;
 }
 
-.fade-image-enter-active {
-  opacity: 0%;
-  -webkit-animation: fade-image-in .5s;
-  -moz-animation: fade-image-in .5s;
-  -o-animation: fade-image-in .5s;
-  animation: fade-image-in .5s;
+#app {
+    background-color: #19191a;
+
+    transition: all 1s ease;
 }
 
-.fade-image-leave-active {
-  animation: fade-image-out .5s;
+#landing-buttons {
+    letter-spacing: 2px;
 }
 
-@keyframes fade-in {
-  0% {
+.nav-link {
+    letter-spacing: 5px;
+}
+
+#landing-header {
+    letter-spacing: .5rem;
+}
+
+/* Animations */
+
+.landing-heading-enter-active, .landing-heading-leave-active {
+    transition: all 1s;
+}
+.landing-heading-enter, .landing-heading-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    transform: translateY(25px);
     opacity: 0;
-    transform: translateX(50px)
-  }
-
-  100% {
-    opacity: 1;
-  }
 }
 
-@-webkit-keyframes fade-in {
-  0% {
+.landing-button-enter-active, .landing-button-leave-active {
+    transition: all 1.5s;
+    transition-delay: 1s;
+}
+.landing-button-enter, .landing-button-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    transform: translateY(25px);
     opacity: 0;
-    transform: translateX(50px)
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-}
-
-
-@-webkit-keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-}
-
-/*---*/
-@keyframes fade-image-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes fade-image-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-image-out {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-
-@-webkit-keyframes fade-image-out {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-
-/* make scrollbar transparent */
-::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
 }
 </style>

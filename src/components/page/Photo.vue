@@ -2,19 +2,19 @@
     <div id="photo" class="content-center w-full h-full overflow-scroll" >
         <div class="flex">
             <div v-for="image in row1" v-bind:key="image" class="bg-grey-300 w-1/4 overflow-hidden relative container cursor-pointer">
-              <img :src="image" class="block w-full h-full object-cover">
+              <v-lazy-image :src="image" :src-placeholder="placeholder"  class="photo-object block w-full h-full object-cover" />
               <div v-on:click="changeImage(image)" class="overlay bg-black"></div>
             </div>
         </div>
         <div class="flex">
             <div v-for="image in row2" v-bind:key="image" class="bg-grey-300 w-1/4 overflow-hidden relative container cursor-pointer">
-              <img :src="image" class="block w-full h-full object-cover">
+              <v-lazy-image :src="image" :src-placeholder="placeholder" class="photo-object block w-full h-full object-cover" />
               <div v-on:click="changeImage(image)" class="overlay bg-black"></div>
             </div>
         </div>
         <div class="flex">
             <div v-for="image in row3" v-bind:key="image" class="bg-grey-300 w-1/4 overflow-hidden relative container cursor-pointer">
-              <img :src="image" class="block w-full h-full object-cover">
+              <v-lazy-image :src="image" :src-placeholder="placeholder" class="photo-object block w-full h-full object-cover" />
               <div v-on:click="changeImage(image)" class="overlay bg-black"></div>
             </div>
 
@@ -43,7 +43,7 @@ export default {
     };
   },
   props: {
-    changeImage: Function
+    changeImage: Function,
   },
   methods: {
   },
@@ -76,5 +76,17 @@ export default {
   width: 100%;
 
   transition: .5s ease;
+}
+
+.v-lazy-image {
+  opacity: 0;
+  transition: all 0.7s;
+}
+.v-lazy-image-loaded {
+  opacity: 1;
+}
+
+.photo-object {
+  height: 500px;
 }
 </style>
