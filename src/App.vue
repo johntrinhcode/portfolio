@@ -1,16 +1,14 @@
 <template>
   <div id="app" class="w-screen h-screen">
-    <transition name="fade" appear>
-      <video muted autoplay loop class="fixed opacity-75">
+      <video muted autoplay loop class="fixed min-h-full object-cover opacity-75 z-0">
           <source src="./assets/video/city.mp4" type="video/mp4">
       </video>
-    </transition>
 
 
 
 
 
-    <div  class="fixed flex w-full h-full items-center z-10">
+    <div  class="fixed flex flex-col w-full h-full items-center z-10">
         <div class="w-full flex flex-col items-center my-auto">
             <div>
                 <transition appear name='landing-heading'>
@@ -33,10 +31,11 @@
 
         </div>
         <!-- Route here -->
-        <div class="w-auto h-full bg-gray-900">
+        <div id="content-container" class="w-full h-auto">
           <transition name="grow">
             <Content
-              v-show="!isLanding" />
+              v-show="!isLanding"
+              :mode=currentView />
           </transition>
         </div>
     </div>
@@ -94,6 +93,10 @@ export default {
     outline: 0;
   }
 
+::-webkit-scrollbar {
+
+  display: none;
+}
 /* Transitions */
 /* fade */
 .fade-enter-active, .fade-leave-active {
@@ -106,11 +109,11 @@ export default {
 /* grow */
 .grow-enter-active, .grow-leave-active {
   transition: all 1s ease;
-  max-width: 1000px;
+  max-height: 85vh;
 }
 
 .grow-enter, .grow-leave-to {
-  max-width: 0;
+  max-height: 0;
 }
 
 #app {
@@ -131,6 +134,9 @@ export default {
     letter-spacing: .5rem;
 }
 
+#content-container {
+  background-color: rgb(27, 27, 27)
+}
 /* Animations */
 
 .landing-heading-enter-active, .landing-heading-leave-active {

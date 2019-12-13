@@ -3,7 +3,7 @@
     <div id="nav" class="w-full text-xs">
       <NavBar />
     </div>
-    <div id="main-content" class=" flex w-full text-xs pt-16 overflow-scroll bg-white">
+    <div id="main-content" class="flex flex-col w-full text-xs pt-16 overflow-scroll bg-white">
       <div class="w-3/6">
 
         <!-- route outlet -->
