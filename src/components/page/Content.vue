@@ -1,28 +1,33 @@
 <template>
-  <div id="content" class="overflow-scroll">
-      <div v-if="codeView">
-          <div class="text-white p-4">
-          code
-          </div>
-      </div>
+    <div id="content" class="overflow-scroll">
+        <div v-if="codeView">
+            <Code />
+        </div>
 
-      <div v-if="photoView">
-          photo
-      </div>
+        <div v-if="photoView">
+            <Photo />
+        </div>
 
-      <div v-if="contactView">
-          contact
-      </div>
-  </div>
+        <div v-if="contactView">
+        contact
+        </div>
+    </div>
 </template>
 
 <script>
+import Code from "./Code.vue";
+import Photo from "./Photo.vue";
+
 export default {
     name: "Content",
     props: {
         mode: {
             required: true,
         }
+    },
+    components: {
+        Code,
+        Photo
     },
     computed: {
         codeView() {

@@ -9,6 +9,7 @@ module.exports = {
       head: ['"Object Sans Heavy"', 'sans-serif'],
     },
     fontSize: {
+      xxs: '.5rem',
       xs: '.75rem',
       sm: '.875rem',
       tiny: '.875rem',
