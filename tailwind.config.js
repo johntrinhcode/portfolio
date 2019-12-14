@@ -4,6 +4,11 @@ module.exports = {
   important: false,
   separator: ':',
   theme: {
+    extend: {
+      spacing: {
+        '128': '32rem'
+      }
+    },
     fontFamily: {
       body: ['Helvetica', 'sans-serif'],
       head: ['"Object Sans Heavy"', 'sans-serif'],
