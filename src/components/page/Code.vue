@@ -1,5 +1,5 @@
 <template>
-    <div id="code" class="pt-4 mx-24" >
+    <div id="code" class="pt-4 mx-4 md:mx-24 lg:mx-24" >
         <div id="resume" class="w-full h-full text-white text-center">
             <div id="experience" class="flex flex-col">
                 <h1 class="w-full font-body font-bold text-4xl">EXPERIENCE</h1>
@@ -27,12 +27,12 @@
             </p>
 
             <!-- Projects -->
-            <div id="projects" class="flex flex-col mt-12">
-                <h1 class="font-body font-bold text-4xl">PROJECTS</h1>
-                <div id="project-row" class="flex flex-col md:flex-col lg:flex-row w-full sm:h-128 md:h-64 lg:h-64">
-                    <div class="detail relative flex items-center card w-full h-full rounded-sm overflow-hidden ml-2">
+            <div id="projects" class="w-full h-full flex flex-col mt-12">
+                <h1 class="w-full font-body font-bold text-4xl">PROJECTS</h1>
+                <div id="project-row" class="flex flex-col md:flex-row w-full">
+                    <div class="detail relative h-64 w-full flex items-center card  rounded-sm overflow-hidden md:ml-2 mx-auto m-2">
                         <img src="../../assets/bud.jpg" class="absolute" />
-                        <div class="absolute right-0 bg-gray-700 h-full w-24 md:w-24 text-sm text-left opacity-75 p-4">
+                        <div class="absolute h-32 right-0 card bg-gray-700 text-sm text-left opacity-75 p-4">
                             <p class="font-head text-4xl">
                                 Bud
                             </p>
@@ -44,9 +44,9 @@
                             </p>
                         </div>
                     </div>
-                    <div class="detail relative flex items-center card w-full h-full rounded-sm overflow-hidden ml-2">
+                    <div class="detail relative h-64 w-full flex items-center card rounded-sm overflow-hidden md:ml-2 mx-auto m-2">
                         <img src="../../assets/bud.jpg" class="absolute" />
-                        <div class="absolute right-0 bg-gray-700 h-full w-24 md:w-24 text-sm text-left opacity-75 p-4">
+                        <div class="absolute h-32 right-0 card bg-gray-700 text-sm text-left opacity-75 p-4">
                             <p class="font-head text-4xl">
                                 Portfolio
                             </p>
@@ -55,9 +55,9 @@
                             </p>
                         </div>
                     </div>
-                    <div class="detail relative flex items-center card w-full h-full rounded-sm overflow-hidden ml-2">
+                    <div class="detail relative h-64 w-full flex items-center card rounded-sm overflow-hidden md:ml-2 mx-auto m-2">
                         <img src="../../assets/bud.jpg" class="absolute" />
-                        <div class="absolute right-0 bg-gray-700 h-full w-24 md:w-24 text-sm text-left opacity-75 p-4">
+                        <div class="absolute h-32 right-0 card text-sm text-left opacity-75 p-4">
                             <p class="font-head text-4xl">
                                 Gem
                             </p>
