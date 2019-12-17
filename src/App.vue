@@ -90,17 +90,17 @@ export default {
     }
   },
   mounted() {
-    setDocHeight();
+    this.setDocHeight();
 
     window.addEventListener("resize", function() {
-      setDocHeight();
+      this.setDocHeight();
     });
 
     window.addEventListener("orientationchange", function() {
-      setDocHeight();
+      this.setDocHeight();
     });
 
-    setDocHeight();
+    this.setDocHeight();
   }
 };
 </script>
