@@ -1,21 +1,8 @@
 <template>
   <div id="content" class="overflow-scroll">
-    <transition name="fade">
-      <div v-if="codeView">
-        <Code
-          @unset-current-project="unsetCurrentProject"
-          @set-current-project="(e) => setCurrentProject(e)"
-        />
-      </div>
-    </transition>
-
-    <transition name="fade">
-      <div v-if="photoView">
-        <Photo />
-      </div>
-    </transition>
-
-    <transition name="fade">
+    <transition name="fade" mode="out-in">
+      <Code v-if="codeView" @unset-current-project="unsetCurrentProject" @set-current-project="e => setCurrentProject(e)" />
+      <Photo v-if="photoView" />
       <div v-if="contactView">contact</div>
     </transition>
   </div>
