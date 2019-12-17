@@ -128,8 +128,7 @@ button:focus {
 .grow-enter-active,
 .grow-leave-active {
   transition: all 1s ease;
-  max-height: 85vh;
-  max-height: calc(var(--vh, 1vh) * 100);
+  max-height: calc(var(--vh, 1vh) * 85);
 }
 
 .grow-enter,
