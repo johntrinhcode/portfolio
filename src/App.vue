@@ -48,7 +48,6 @@
 <script>
 import Content from "./components/page/Content";
 import ProjectDetail from "./components/detail/ProjectDetail.vue";
-import func from "../vue-temp/vue-editor-bridge";
 
 export default {
   name: "app",
