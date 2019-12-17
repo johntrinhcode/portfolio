@@ -48,6 +48,7 @@
 <script>
 import Content from "./components/page/Content";
 import ProjectDetail from "./components/detail/ProjectDetail.vue";
+import func from "../vue-temp/vue-editor-bridge";
 
 export default {
   name: "app",
@@ -84,10 +85,23 @@ export default {
     },
     unsetCurrentProject() {
       this.currentProject = null;
+    },
+    setDocHeight() {
+      document.documentElement.style.setProperty("--vh", `${window.innerHeight / 100}px`);
     }
   },
   mounted() {
-    document.documentElement.style.setProperty("--vh", `${window.innerHeight / 100}px`);
+    setDocHeight();
+
+    window.addEventListener("resize", function() {
+      setDocHeight();
+    });
+
+    window.addEventListener("orientationchange", function() {
+      setDocHeight();
+    });
+
+    setDocHeight();
   }
 };
 </script>
