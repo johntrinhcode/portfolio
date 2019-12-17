@@ -1,32 +1,35 @@
 <template>
   <div id="code" class="pt-4 mx-4 md:mx-24 lg:mx-24">
     <div id="resume" class="w-full h-full mt-12 text-white text-left">
-      <div id="experience" class="flex flex-col border-gray-600 border-l-2 p-4 rounded-lg">
-        <h1 class="code-header w-full font-body font-thin text-2xl mb-6">EXPERIENCE</h1>
-        <div class="detail card flex items-center h-full w-full lg:w-1/4 cursor-pointer p-2 rounded-sm border-white border-l-4">
-          <img src="../../assets/ibm-logo.png" class="h-12" />
-          <div class="text-sm text-left ml-4">
-            <p>Full Stack Developer Intern</p>
-            <p class="text-xs text-gray-500">May 2019 - August 2019</p>
+      <div id="row-1" class="flex flex-col md:flex-row w-full h-full">
+        <!-- Experience -->
+        <div id="experience" class="flex flex-col w-full border-gray-600 border-l-2 p-4 rounded-lg">
+          <h1 class="code-header w-full font-body font-thin text-2xl mb-2">EXPERIENCE</h1>
+          <div class="detail card flex items-center h-full w-full cursor-pointer p-2 rounded-sm border-white border-l-4">
+            <img src="../../assets/ibm-logo.png" class="h-12" />
+            <div class="text-sm text-left ml-4">
+              <p>Full Stack Developer Intern</p>
+              <p class="text-xs text-gray-500">May 2019 - August 2019</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- School -->
-      <div id="education" class="flex flex-col border-gray-600 border-l-2 p-4 rounded-lg mt-12">
-        <h1 class="code-header w-full font-body font-thin text-2xl mb-6">EDUCATION</h1>
-        <div class="detail card flex items-center h-full w-full lg:w-1/4 cursor-pointer p-2 rounded-sm border-white border-l-4">
-          <img src="../../assets/umd.png" class="w-16" />
-          <div class="detail">
-            <p class="w-full text-sm">University of Maryland - College Park</p>
-            <p class="text-xs text-gray-500">August 2017 - May 2020</p>
+        <!-- School -->
+        <div id="education" class="flex flex-col  w-full border-gray-600 border-l-2 p-4 rounded-lg mt-12 md:mt-0">
+          <h1 class="code-header w-full font-body font-thin text-2xl mb-2">EDUCATION</h1>
+          <div class="detail card flex items-center h-full w-full cursor-pointer p-2 rounded-sm border-white border-l-4">
+            <img src="../../assets/umd.png" class="w-16" />
+            <div class="detail">
+              <p class="w-full text-sm">University of Maryland - College Park</p>
+              <p class="text-xs text-gray-500">August 2017 - May 2020</p>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Projects -->
       <div id="projects" class="w-full h-full flex flex-col mt-12 border-gray-600 border-l-2 p-4 rounded-lg">
-        <h1 class="code-header w-full font-body font-thin text-2xl mb-6">PROJECTS</h1>
+        <h1 class="code-header w-full font-body font-thin text-2xl mb-2">PROJECTS</h1>
         <div id="project-row" class="flex flex-col md:flex-row w-full">
           <div class="detail relative h-64 w-full flex items-center rounded-sm overflow-hidden md:ml-2 mx-auto m-2">
             <img src="../../assets/bud.jpg" class="absolute h-full w-full object-cover" />
@@ -84,17 +87,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Skills -->
-      <div id="skills" class="mt-12">
-        <div id="languages_frameworks">
-          <h1 class="code-header w-full font-body font-thin text-2xl mb-6">LANGUAGES & FRAMEWORKS</h1>
-        </div>
-        <div id="tools">
-          <h1 class="code-header w-full font-body font-thin text-2xl mb-6">TOOLS</h1>
-        </div>
-      </div>
-      <p class="w-full">Bud.</p>
     </div>
   </div>
 </template>

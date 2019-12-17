@@ -3,7 +3,7 @@
     <transition name="fade" mode="out-in">
       <Code v-if="codeView" @unset-current-project="unsetCurrentProject" @set-current-project="e => setCurrentProject(e)" />
       <Photo v-if="photoView" />
-      <div v-if="contactView">contact</div>
+      <Contact v-if="contactView" />
     </transition>
   </div>
 </template>
@@ -11,6 +11,7 @@
 <script>
 import Code from "./Code.vue";
 import Photo from "./Photo.vue";
+import Contact from "./Contact";
 
 export default {
   name: "Content",
@@ -21,7 +22,8 @@ export default {
   },
   components: {
     Code,
-    Photo
+    Photo,
+    Contact
   },
   computed: {
     codeView() {
