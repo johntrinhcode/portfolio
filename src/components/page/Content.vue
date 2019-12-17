@@ -44,12 +44,27 @@ export default {
       this.$emit("set-current-project", project);
       console.log("hit");
     }
+  },
+  mounted() {
+    function setDocHeight() {
+      document.documentElement.style.setProperty("--vh", `${window.innerHeight / 100}px`);
+    }
+
+    window.addEventListener("resize", function() {
+      setDocHeight();
+    });
+
+    window.addEventListener("orientationchange", function() {
+      setDocHeight();
+    });
+
+    setDocHeight();
   }
 };
 </script>
 
 <style>
 #content {
-  height: 85vh;
+  height: calc(var(--vh, 1vh) * 85);
 }
 </style>
