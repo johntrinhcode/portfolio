@@ -1,5 +1,5 @@
 <template>
-  <div id="content" class="overflow-scroll">
+  <div id="content" class="overflow-scroll w-full h-full">
     <transition name="fade" mode="out-in">
       <Code v-if="codeView" @unset-current-project="unsetCurrentProject" @set-current-project="e => setCurrentProject(e)" />
       <Photo v-if="photoView" />
