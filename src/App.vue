@@ -85,6 +85,13 @@ export default {
     unsetCurrentProject() {
       this.currentProject = null;
     }
+  },
+  mounted() {
+    window.addEventListener("resize", () => {
+      // We execute the same script as before
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    });
   }
 };
 </script>
@@ -122,6 +129,7 @@ button:focus {
 .grow-leave-active {
   transition: all 1s ease;
   max-height: 85vh;
+  max-height: calc(var(--vh, 1vh) * 100);
 }
 
 .grow-enter,
