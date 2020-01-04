@@ -1,19 +1,27 @@
 <template>
   <div id="app" class="w-screen h-screen">
     <transition name="fade">
-      <ProjectDetail v-if="currentProject" :currentProject="currentProject" @close-project-detail="unsetCurrentProject" />
+      <ProjectDetail
+        v-if="currentProject"
+        :currentProject="currentProject"
+        @close-project-detail="unsetCurrentProject"
+      />
     </transition>
 
-    <div id="blur-filter" :class="currentProject ? 'fixed w-screen h-screen blur' : 'fixed w-screen h-screen'">
-      <video muted autoplay loop class="fixed min-h-full object-cover opacity-75 z-0">
-        <source src="./assets/video/city.mp4" type="video/mp4" />
-      </video>
-
+    <div
+      id="blur-filter"
+      :class="currentProject ? 'fixed w-screen h-screen blur' : 'fixed w-screen h-screen'"
+    >
       <div class="fixed flex flex-col w-full h-full items-center z-10">
         <div class="w-full flex flex-col items-center my-auto">
           <div>
             <transition appear name="landing-heading">
-              <h1 id="landing-header" @click="goLanding" class="text-center text-white text-4xl font-body font-bold cursor-pointer">JOHN TRINH</h1>
+              <h1
+                id="landing-header"
+                @click="goLanding"
+                v-if="currentView == 'landing'"
+                class="text-center text-white text-4xl font-body font-bold cursor-pointer"
+              >JOHN TRINH</h1>
             </transition>
           </div>
 
@@ -86,12 +94,18 @@ export default {
       this.currentProject = null;
     },
     setDocHeight() {
-      document.documentElement.style.setProperty("--vh", `${window.innerHeight / 100}px`);
+      document.documentElement.style.setProperty(
+        "--vh",
+        `${window.innerHeight / 100}px`
+      );
     }
   },
   mounted() {
     function setDocHeight() {
-      document.documentElement.style.setProperty("--vh", `${window.innerHeight / 100}px`);
+      document.documentElement.style.setProperty(
+        "--vh",
+        `${window.innerHeight / 100}px`
+      );
     }
 
     window.addEventListener("resize", function() {
@@ -144,7 +158,7 @@ button:focus {
 .grow-enter-active,
 .grow-leave-active {
   transition: all 1s ease;
-  max-height: calc(var(--vh, 1vh) * 85);
+  max-height: calc(var(--vh, 1vh) * 95);
 }
 
 .grow-enter,
@@ -153,7 +167,7 @@ button:focus {
 }
 
 #app {
-  background-color: #19191a;
+  background-color: #111111;
 
   transition: all 1s ease;
 }
@@ -171,7 +185,7 @@ button:focus {
 }
 
 #content-container {
-  background-color: rgb(27, 27, 27);
+  background-color: #111111;
 }
 /* Animations */
 
@@ -182,6 +196,7 @@ button:focus {
 .landing-heading-enter, .landing-heading-leave-to /* .fade-leave-active below version 2.1.8 */ {
   transform: translateY(25px);
   opacity: 0;
+  max-height: 0;
 }
 
 .landing-button-enter-active,
@@ -210,5 +225,9 @@ button:focus {
   -o-filter: blur(0.001px);
   -ms-filter: blur(0.001px);
   filter: blur(0.001px);
+}
+
+#trans {
+  transition: 0.3s all ease;
 }
 </style>

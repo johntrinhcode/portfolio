@@ -1,7 +1,11 @@
 <template>
   <div id="content" class="overflow-scroll w-full h-full">
     <transition name="fade" mode="out-in">
-      <Code v-if="codeView" @unset-current-project="unsetCurrentProject" @set-current-project="e => setCurrentProject(e)" />
+      <Code
+        v-if="codeView"
+        @unset-current-project="unsetCurrentProject"
+        @set-current-project="e => setCurrentProject(e)"
+      />
       <Photo v-if="photoView" />
       <Contact v-if="contactView" />
     </transition>
@@ -47,7 +51,10 @@ export default {
   },
   mounted() {
     function setDocHeight() {
-      document.documentElement.style.setProperty("--vh", `${window.innerHeight / 100}px`);
+      document.documentElement.style.setProperty(
+        "--vh",
+        `${window.innerHeight / 100}px`
+      );
     }
 
     window.addEventListener("resize", function() {
@@ -65,6 +72,6 @@ export default {
 
 <style>
 #content {
-  height: calc(var(--vh, 1vh) * 85);
+  height: calc(var(--vh, 1vh) * 95);
 }
 </style>
