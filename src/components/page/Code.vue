@@ -1,8 +1,8 @@
 <template>
   <div id="code">
     <!-- Projects -->
-    <div id="projects" class="w-full h-full flex flex-col border-gray-600 rounded-lg">
-      <div class="detail relative h-64 w-full flex items-center rounded-sm overflow-hidden">
+    <div id="projects" class="w-full flex flex-col border-gray-600 rounded-lg">
+      <div class="detail relative h-128 w-full flex items-center overflow-hidden">
         <img src="../../assets/jurnul.png" class="absolute h-full w-full object-cover" />
         <div class="absolute h-32 right-0 card project-card text-sm text-left p-4">
           <p class="text-white text-4xl font-bold font-head">Jurnul</p>
@@ -19,7 +19,7 @@
           </p>
         </div>
       </div>
-      <div class="detail relative h-64 w-full flex items-center rounded-sm overflow-hidden">
+      <div class="detail relative h-128 w-full flex items-center overflow-hidden mt-4">
         <img src="../../assets/bud.jpg" class="absolute h-full w-full object-cover" />
         <div class="absolute h-32 right-0 card project-card text-sm text-left p-4">
           <p class="text-white text-4xl font-bold font-head">Bud</p>
@@ -36,7 +36,7 @@
           </p>
         </div>
       </div>
-      <div class="detail relative h-64 w-full flex items-center rounded-sm overflow-hidden">
+      <div class="detail relative h-128 w-full flex items-center overflow-hidden mt-4">
         <img src="../../assets/portfolio.jpg" class="absolute h-full w-full object-cover" />
         <div class="absolute h-32 right-0 card project-card text-sm text-left p-4">
           <p class="text-white text-4xl font-bold font-head">Portfolio</p>
@@ -53,7 +53,7 @@
           </p>
         </div>
       </div>
-      <div class="detail relative h-64 w-full flex items-center rounded-sm overflow-hidden">
+      <div class="detail relative h-128 w-full flex items-center overflow-hidden mt-4">
         <img src="../../assets/gem.jpg" class="absolute h-full w-full object-cover" />
         <div class="absolute h-32 right-0 card project-card text-sm text-left p-4">
           <p class="text-white text-4xl font-bold font-head">Gem</p>
@@ -116,5 +116,9 @@ export default {
 
 .code-header {
   letter-spacing: 0.5rem;
+}
+
+#code {
+  background: black;
 }
 </style>

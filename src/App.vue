@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="w-screen h-screen">
+  <div id="app" class="relative w-full flex flex-col h-full bg-black">
     <transition name="fade">
       <ProjectDetail
         v-if="currentProject"
@@ -7,47 +7,54 @@
         @close-project-detail="unsetCurrentProject"
       />
     </transition>
+    <div class="flex flex-col w-full items-center z-10">
+      <div class="w-full flex items-center my-auto">
+        <div class="p-2">
+          <h1
+            id="landing-header"
+            class="text-center text-white text-4xl font-body font-extrabold leading-none cursor-default"
+          >JT</h1>
+        </div>
 
+        <div id="landing-buttons" class="flex text-xs font-body">
+          <button
+            @click="goCode"
+            :class="$router.currentRoute.path == '/code' ? 'border-white' : 'border-black'"
+            class="nav-link p-1 mx-2 text-white border-b-2 border-black"
+          >CODE</button>
+          <button
+            @click="goPhoto"
+            :class="$router.currentRoute.path == '/photo' ? 'border-white' : 'border-black'"
+            class="nav-link p-1 mx-2 text-white border-b-2 border-black"
+          >PHOTO</button>
+          <button
+            @click="goContact"
+            :class="$router.currentRoute.path == '/contact' ? 'border-white' : 'border-black'"
+            class="nav-link p-1 mx-2 text-white border-b-2 border-black"
+          >CONTACT</button>
+        </div>
+      </div>
+    </div>
     <div
       id="blur-filter"
-      :class="currentProject ? 'fixed w-screen h-screen blur' : 'fixed w-screen h-screen'"
+      :class="currentProject ? 'w-screen overflow-hidden h-full blur' : 'w-screen'"
     >
-      <div class="fixed flex flex-col w-full h-full items-center z-10">
-        <div class="w-full flex flex-col items-center my-auto">
-          <div>
-            <transition appear name="landing-heading">
-              <h1
-                id="landing-header"
-                @click="goLanding"
-                v-if="currentView == 'landing'"
-                class="text-center text-white text-4xl font-body font-bold cursor-pointer"
-              >JOHN TRINH</h1>
-            </transition>
-          </div>
-
-          <div id="landing-buttons" class="flex text-xs font-body">
-            <transition appear name="landing-button">
-              <button @click="goCode" class="nav-link p-1 mx-4 text-white">CODE</button>
-            </transition>
-            <transition appear name="landing-button">
-              <button @click="goPhoto" class="nav-link p-1 mx-4 text-white">PHOTO</button>
-            </transition>
-            <transition appear name="landing-button">
-              <button @click="goContact" class="nav-link p-1 mx-4 text-white">CONTACT</button>
-            </transition>
-          </div>
-        </div>
-        <!-- Route here -->
-        <div id="content-container" class="w-full h-auto">
-          <transition name="grow">
+      <!-- Route here -->
+      <div id="content-container" class="relative w-full h-full p-4 bg-black">
+        <transition name="fade" mode="out-in">
+          <router-view
+            @set-current-project="e => setCurrentProject(e)"
+            @unset-current-project="unsetCurrentProject"
+          ></router-view>
+        </transition>
+        <!--
             <Content
               v-show="!isLanding"
               :mode="currentView"
               @set-current-project="e => setCurrentProject(e)"
               @unset-current-project="unsetCurrentProject"
             />
-          </transition>
-        </div>
+        -->
       </div>
     </div>
   </div>
@@ -65,59 +72,31 @@ export default {
   },
   data() {
     return {
-      currentView: "landing",
       currentProject: null
     };
   },
-  computed: {
-    isLanding() {
-      return this.currentView === "landing";
-    }
-  },
+  computed: {},
   methods: {
     goCode() {
-      this.currentView = "code";
+      this.$router.push({ path: "/code" });
     },
     goPhoto() {
-      this.currentView = "photo";
+      this.$router.push({ path: "/photo" });
     },
     goContact() {
-      this.currentView = "contact";
+      this.$router.push({ path: "/contact" });
     },
     goLanding() {
-      this.currentView = "landing";
+      this.$router.push({ path: "/" });
     },
     setCurrentProject(project) {
       this.currentProject = project;
     },
     unsetCurrentProject() {
       this.currentProject = null;
-    },
-    setDocHeight() {
-      document.documentElement.style.setProperty(
-        "--vh",
-        `${window.innerHeight / 100}px`
-      );
     }
   },
-  mounted() {
-    function setDocHeight() {
-      document.documentElement.style.setProperty(
-        "--vh",
-        `${window.innerHeight / 100}px`
-      );
-    }
-
-    window.addEventListener("resize", function() {
-      setDocHeight();
-    });
-
-    window.addEventListener("orientationchange", function() {
-      setDocHeight();
-    });
-
-    setDocHeight();
-  }
+  mounted() {}
 };
 </script>
 
@@ -154,21 +133,7 @@ button:focus {
   opacity: 0;
 }
 
-/* grow */
-.grow-enter-active,
-.grow-leave-active {
-  transition: all 1s ease;
-  max-height: calc(var(--vh, 1vh) * 95);
-}
-
-.grow-enter,
-.grow-leave-to {
-  max-height: 0;
-}
-
 #app {
-  background-color: #111111;
-
   transition: all 1s ease;
 }
 
@@ -176,16 +141,16 @@ button:focus {
   letter-spacing: 2px;
 }
 
+button {
+  transition: all 0.5s ease;
+}
+
 .nav-link {
   letter-spacing: 5px;
 }
 
 #landing-header {
-  letter-spacing: 0.5rem;
-}
-
-#content-container {
-  background-color: #111111;
+  letter-spacing: 0.1rem;
 }
 /* Animations */
 

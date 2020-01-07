@@ -1,10 +1,10 @@
 <template>
   <div
     id="project-detail"
-    class="h-screen w-screen absolute z-50"
+    class="h-full w-screen absolute z-50"
     @click="$emit('close-project-detail')"
   >
-    <div id="project-detail-bg" class="h-screen w-screen bg-black opacity-75 absolute"></div>
+    <div id="project-detail-bg" class="h-full w-screen bg-black opacity-75 absolute"></div>
     <div class="w-full h-full flex items-center opacity-100">
       <div
         @click.stop

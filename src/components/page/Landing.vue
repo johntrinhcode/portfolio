@@ -1,19 +1,14 @@
 <template>
-    <div id="landing" class="w-screen h-screen">
-        <!-- Cool video here -->
+  <div id="landing">
+    <!-- Cool video here -->
 
-
-
-
-    </div>
+    <div class="text-white">Hello</div>
+  </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-
 </style>

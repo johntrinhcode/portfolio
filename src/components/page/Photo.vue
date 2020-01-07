@@ -1,21 +1,30 @@
 <template>
-  <div id="photo" class="content-center w-full h-full overflow-scroll">
-    <div class="flex w-full">
-      <div v-for="image in row1" v-bind:key="image" class="bg-grey-300 w-full overflow-hidden relative container cursor-pointer">
+  <div id="photo">
+    <div class="flex flex-col md:flex-row">
+      <div
+        v-for="image in row1"
+        v-bind:key="image"
+        class="bg-grey-300 w-full overflow-hidden relative container cursor-pointer"
+      >
         <v-lazy-image :src="image" class="photo-object block w-full h-full object-cover" />
-        <div v-on:click="changeImage(image)" class="overlay bg-black"></div>
       </div>
     </div>
-    <div class="flex w-full">
-      <div v-for="image in row2" v-bind:key="image" class="bg-grey-300 w-full overflow-hidden relative container cursor-pointer">
+    <div class="flex flex-col md:flex-row">
+      <div
+        v-for="image in row2"
+        v-bind:key="image"
+        class="bg-grey-300 w-full overflow-hidden relative container cursor-pointer"
+      >
         <v-lazy-image :src="image" class="photo-object block w-full h-full object-cover" />
-        <div v-on:click="changeImage(image)" class="overlay bg-black"></div>
       </div>
     </div>
-    <div class="flex w-full">
-      <div v-for="image in row3" v-bind:key="image" class="bg-grey-300 w-full overflow-hidden relative container cursor-pointer">
+    <div class="flex flex-col md:flex-row">
+      <div
+        v-for="image in row3"
+        v-bind:key="image"
+        class="bg-grey-300 w-full overflow-hidden relative container cursor-pointer"
+      >
         <v-lazy-image :src="image" class="photo-object block w-full h-full object-cover" />
-        <div v-on:click="changeImage(image)" class="overlay bg-black"></div>
       </div>
     </div>
   </div>
@@ -25,14 +34,24 @@
 export default {
   data() {
     return {
-      row1: [require("@/assets/photography/r1-1.jpg"), require("@/assets/photography/r1-2.jpg"), require("@/assets/photography/r1-3.jpg")],
-      row2: [require("@/assets/photography/r2-1.jpg"), require("@/assets/photography/r2-2.jpg"), require("@/assets/photography/r2-3.jpg")],
-      row3: [require("@/assets/photography/r3-1.jpg"), require("@/assets/photography/r3-2.jpg"), require("@/assets/photography/r3-3.jpg")]
+      row1: [
+        require("@/assets/photography/r1-1.jpg"),
+        require("@/assets/photography/r1-2.jpg"),
+        require("@/assets/photography/r1-3.jpg")
+      ],
+      row2: [
+        require("@/assets/photography/r2-1.jpg"),
+        require("@/assets/photography/r2-2.jpg"),
+        require("@/assets/photography/r2-3.jpg")
+      ],
+      row3: [
+        require("@/assets/photography/r3-1.jpg"),
+        require("@/assets/photography/r3-2.jpg"),
+        require("@/assets/photography/r3-3.jpg")
+      ]
     };
   },
-  props: {
-    changeImage: Function
-  },
+  props: {},
   methods: {}
 };
 </script>
@@ -69,9 +88,5 @@ export default {
 }
 .v-lazy-image-loaded {
   opacity: 1;
-}
-
-.photo-object {
-  height: 500px;
 }
 </style>
