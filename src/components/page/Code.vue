@@ -54,8 +54,7 @@ export default {
       projects: [
         {
           title: "Bud.",
-          description:
-            "A web application that allows users to create their own garden designs and share with others.",
+          description: "A web application that allows users to create their own garden designs and share with others.",
           implementation: {
             front: [
               "The frontend of this application was developed with the Vue.js framework.",
@@ -102,9 +101,7 @@ export default {
               "The backend of this application is developed with NodeJS using the Express.js framework.",
               "Developed a REST API to execute basic CRUD operations on the MongoDB database."
             ],
-            deployment: [
-              "This application was deployed to IBM's own cloud solution and later on made it's way to their About Us page via Drupal."
-            ]
+            deployment: ["This application was deployed to IBM's own cloud solution and later on made it's way to their About Us page via Drupal."]
           },
           image: require("../../assets/gem.jpg"),
           date: "May 2019 - August 2019",
@@ -112,8 +109,7 @@ export default {
         },
         {
           title: "Jurnul",
-          description:
-            "A web application that lets you record a log about your day and track your emotions.",
+          description: "A web application that lets you record a log about your day and track your emotions.",
           implementation: {
             front: [
               "The visual design of this project was made in Figma.",
@@ -125,14 +121,11 @@ export default {
               "Authentication is implemented using JSON Web Token (JWT) authentication.",
               "MongoDB was the database of choice for holding user information."
             ],
-            deployment: [
-              "The backend API is deployed with Heroku.",
-              "The Vue.js frontend is deployed with Netlify."
-            ]
+            deployment: ["The backend API is deployed with Heroku.", "The Vue.js frontend is deployed with Netlify."]
           },
 
           image: require("../../assets/jurnul.png"),
-          date: "December 2019 - January 2019",
+          date: "December 2019 - January 2020",
           link: "https://jurnul.netlify.com/",
           technologies: ["Vue.js", "Node"]
         }
