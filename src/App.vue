@@ -36,7 +36,7 @@
     </div>
 
     <!-- Route here -->
-    <div id="content-container" class="relative bg-black">
+    <div id="content-container" class="relative bg-black w-full h-full">
       <transition name="fade" mode="out-in">
         <router-view ref="view"></router-view>
       </transition>

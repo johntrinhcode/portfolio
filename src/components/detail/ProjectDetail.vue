@@ -3,7 +3,7 @@
     <div class="detail relative h-full w-full flex items-center overflow-hidden">
       <div class="gradient absolute w-full h-full"></div>
       <div class="filter absolute w-full h-full"></div>
-      <img :src="image" class="h-full w-full object-cover" />
+      <img :src="image" class="h-full w-full object-fill" />
       <div class="absolute flex flex-col h-32 w-64 mx-auto right-0 left-0 card text-sm text-left">
         <p class="text-center text-white text-6xl font-bold font-head leading-none">{{ title }}</p>
         <p class="text-center text-xs text-white">{{ date }}</p>
@@ -52,13 +52,13 @@ export default {
 
 .gradient {
   transition: all 0.5s ease;
-  opacity: 50%;
+  opacity: 0.5;
   background: rgb(0, 0, 0);
   background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(9, 9, 121, 0) 74%);
 }
 
 .filter {
-  opacity: 10%;
+  opacity: 0.1;
   background: black;
 }
 

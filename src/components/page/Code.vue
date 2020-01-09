@@ -1,5 +1,5 @@
 <template>
-  <div id="code">
+  <div id="code" class="w-full h-full">
     <transition name="fade" mode="out-in">
       <ProjectDetail
         v-if="currentItem == 0"
