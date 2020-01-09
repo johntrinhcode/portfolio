@@ -2,7 +2,7 @@
   <div id="about" class="w-full h-full text-white bg-black p-8">
     <div class="flex flex-col md:flex-row md:w-1/2 h-full mx-auto my-auto">
       <div class="w-full h-64 md:h-auto md:my-auto">
-        <v-lazy-image src="../../assets/selfie.jpeg" class="w-full h-full object-cover" />
+        <v-lazy-image :src="selfie" class="w-full h-full object-cover" />
       </div>
       <div class="flex flex-col mt-4 md:w-full md:ml-4 md:my-auto">
         <p class="font-head font-bold text-2xl md:text-6xl leading-none">Hey!</p>
@@ -28,8 +28,21 @@
 
 <script>
 export default {
-  name: "About"
+  name: "About",
+  data() {
+    return {
+      selfie: require("../../assets/selfie.jpeg")
+    };
+  }
 };
 </script>
 
-<style></style>
+<style>
+.v-lazy-image {
+  opacity: 0;
+  transition: all 0.7s;
+}
+.v-lazy-image-loaded {
+  opacity: 1;
+}
+</style>
