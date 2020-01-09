@@ -3,7 +3,7 @@
     <div class="detail relative h-full w-full flex items-center overflow-hidden">
       <div class="gradient absolute w-full h-full"></div>
       <div class="filter absolute w-full h-full"></div>
-      <img :src="image" class="h-full w-full object-fill" />
+      <img :src="image" class="h-full w-full object-cover" />
       <div class="absolute flex flex-col h-32 w-64 mx-auto right-0 left-0 card text-sm text-left">
         <p class="text-center text-white text-6xl font-bold font-head leading-none">{{ title }}</p>
         <p class="text-center text-xs text-white">{{ date }}</p>
