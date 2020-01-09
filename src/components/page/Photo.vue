@@ -1,10 +1,22 @@
 <template>
-  <div id="photo">
-    <div class="flex flex-col md:flex-row h-screen">
-      <div v-for="image in rows[currentItem]" v-bind:key="image" class="bg-grey-300 w-full h-screen">
-        <v-lazy-image :src="image" class="photo-object block w-full h-full object-cover" />
+  <div class="w-full h-full">
+    <transition name="fade" mode="out-in" id="photo" class="w-full h-full">
+      <div v-if="currentItem == 0" :key="0" class="flex w-full h-full">
+        <v-lazy-image :src="rows[currentItem][0]" class="w-1/3 object-cover"></v-lazy-image>
+        <v-lazy-image :src="rows[currentItem][1]" class="w-1/3 object-cover"></v-lazy-image>
+        <v-lazy-image :src="rows[currentItem][2]" class="w-1/3 object-cover"></v-lazy-image>
       </div>
-    </div>
+      <div v-else-if="currentItem == 1" :key="1" class="flex w-full h-full">
+        <v-lazy-image :src="rows[currentItem][0]" class="w-1/3 object-cover"></v-lazy-image>
+        <v-lazy-image :src="rows[currentItem][1]" class="w-1/3 object-cover"></v-lazy-image>
+        <v-lazy-image :src="rows[currentItem][2]" class="w-1/3 object-cover"></v-lazy-image>
+      </div>
+      <div v-else :key="2" class="flex w-full h-full">
+        <v-lazy-image :src="rows[currentItem][0]" class="w-1/3 object-cover"></v-lazy-image>
+        <v-lazy-image :src="rows[currentItem][1]" class="w-1/3 object-cover"></v-lazy-image>
+        <v-lazy-image :src="rows[currentItem][2]" class="w-1/3 object-cover"></v-lazy-image>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -14,9 +26,21 @@ export default {
     return {
       currentItem: 0,
       rows: [
-        [require("@/assets/photography/r1-1.jpg"), require("@/assets/photography/r1-2.jpg"), require("@/assets/photography/r1-3.jpg")],
-        [require("@/assets/photography/r2-1.jpg"), require("@/assets/photography/r2-2.jpg"), require("@/assets/photography/r2-3.jpg")],
-        [require("@/assets/photography/r3-1.jpg"), require("@/assets/photography/r3-2.jpg"), require("@/assets/photography/r3-3.jpg")]
+        [
+          require("@/assets/photography/r1-1.jpg"),
+          require("@/assets/photography/r1-2.jpg"),
+          require("@/assets/photography/r1-3.jpg")
+        ],
+        [
+          require("@/assets/photography/r2-1.jpg"),
+          require("@/assets/photography/r2-2.jpg"),
+          require("@/assets/photography/r2-3.jpg")
+        ],
+        [
+          require("@/assets/photography/r3-1.jpg"),
+          require("@/assets/photography/r3-2.jpg"),
+          require("@/assets/photography/r3-3.jpg")
+        ]
       ]
     };
   },
