@@ -25,8 +25,8 @@
       </div>
 
       <div class="h-full md:flex md:justify-end">
-        <router-link to="#contact-page">
-          <button class="nav-link font-body font-bold text-white">CONTACT</button>
+        <router-link to="#about-page">
+          <button class="nav-link font-body font-bold text-white">ABOUT</button>
         </router-link>
       </div>
       <div class="h-full"></div>
@@ -46,8 +46,8 @@
     <div id="photo-page" class="w-full h-screen">
       <Photo ref="photoView" />
     </div>
-    <div id="contact-page" class="w-full h-screen">
-      <Contact ref="contactView" />
+    <div id="about-page" class="w-full h-screen">
+      <About ref="aboutView" />
     </div>
   </div>
 </template>
@@ -59,7 +59,7 @@ import RightCheveron from "./assets/icons/right-cheveron.svg";
 
 import Code from "./components/page/Code";
 import Photo from "./components/page/Photo";
-import Contact from "./components/page/Contact";
+import About from "./components/page/About";
 
 export default {
   name: "app",
@@ -69,7 +69,7 @@ export default {
     RightCheveron,
     Code,
     Photo,
-    Contact
+    About
   },
   data() {
     return {
@@ -93,15 +93,6 @@ export default {
         this.$refs.photoView.goBackward();
       }
       //      this.$refs.view.goBackward();
-    },
-    goCode() {
-      this.$router.push({ path: "/code", name: "code-page" });
-    },
-    goPhoto() {
-      this.$router.push({ path: "/photo", name: "photo-page" });
-    },
-    goContact() {
-      this.$router.push({ path: "/contact", name: "contact-page" });
     },
     goLanding() {
       this.$router.push({ path: "/" });
