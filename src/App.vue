@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="relative w-screen h-screen flex flex-col bg-black">
+  <div id="app" class="relative w-full h-full flex flex-col bg-black">
     <!--
     <transition name="fade">
       <ProjectDetail
