@@ -1,5 +1,6 @@
 <template>
-  <div id="app" class="relative w-full flex flex-col h-full bg-black">
+  <div id="app" class="relative w-screen h-screen flex flex-col bg-black">
+    <!--
     <transition name="fade">
       <ProjectDetail
         v-if="currentProject"
@@ -7,68 +8,53 @@
         @close-project-detail="unsetCurrentProject"
       />
     </transition>
-    <div class="flex flex-col w-full items-center z-10">
-      <div class="w-full flex items-center my-auto">
-        <div class="p-2">
-          <h1
-            id="landing-header"
-            class="text-center text-white text-4xl font-body font-extrabold leading-none cursor-default"
-          >JT</h1>
-        </div>
-
-        <div id="landing-buttons" class="flex text-xs font-body">
-          <button
-            @click="goCode"
-            :class="$router.currentRoute.path == '/code' ? 'border-white' : 'border-black'"
-            class="nav-link p-1 mx-2 text-white border-b-2 border-black"
-          >CODE</button>
-          <button
-            @click="goPhoto"
-            :class="$router.currentRoute.path == '/photo' ? 'border-white' : 'border-black'"
-            class="nav-link p-1 mx-2 text-white border-b-2 border-black"
-          >PHOTO</button>
-          <button
-            @click="goContact"
-            :class="$router.currentRoute.path == '/contact' ? 'border-white' : 'border-black'"
-            class="nav-link p-1 mx-2 text-white border-b-2 border-black"
-          >CONTACT</button>
-        </div>
-      </div>
+    -->
+    <!-- Arrow Icons -->
+    <div id="cheverons" class="fixed bottom-0 left-0 m-4 md:m-12 flex z-50">
+      <LeftCheveron @click="goBackward" class="w-4 md:w-8 fill-current text-white cursor-pointer" />
+      <RightCheveron @click="goForward" class="w-4 md:w-8 ml-8 fill-current text-white cursor-pointer" />
     </div>
-    <div
-      id="blur-filter"
-      :class="currentProject ? 'w-screen overflow-hidden h-full blur' : 'w-screen'"
-    >
-      <!-- Route here -->
-      <div id="content-container" class="relative w-full h-full p-4 bg-black">
-        <transition name="fade" mode="out-in">
-          <router-view
-            @set-current-project="e => setCurrentProject(e)"
-            @unset-current-project="unsetCurrentProject"
-          ></router-view>
-        </transition>
-        <!--
-            <Content
-              v-show="!isLanding"
-              :mode="currentView"
-              @set-current-project="e => setCurrentProject(e)"
-              @unset-current-project="unsetCurrentProject"
-            />
-        -->
+    <!-- J title -->
+    <div>
+      <h1 id="landing-header" class="fixed m-2 md:m-6 text-white font-body font-extrabold cursor-default leading-none z-50">J.</h1>
+    </div>
+    <!-- NAV -->
+    <div id="landing-buttons" class="fixed right-0 flex flex-col text-right h-full mr-6 text-xs md:text-xl font-body z-50">
+      <div class="h-16 md:h-full"></div>
+      <div class="md:h-full md:flex md:justify-end">
+        <button @click="goCode" class="nav-link font-body font-bold text-white">CODE</button>
       </div>
+
+      <div class="md:h-full md:flex md:justify-end">
+        <button @click="goPhoto" class="nav-link font-body font-bold text-white">PHOTO</button>
+      </div>
+
+      <div class="h-full md:flex md:justify-end">
+        <button @click="goContact" class="nav-link font-body font-bold text-white">CONTACT</button>
+      </div>
+      <div class="h-full"></div>
+    </div>
+
+    <!-- Route here -->
+    <div id="content-container" class="relative bg-black">
+      <transition name="fade" mode="out-in">
+        <router-view ref="view"></router-view>
+      </transition>
     </div>
   </div>
 </template>
 
 <script>
-import Content from "./components/page/Content";
 import ProjectDetail from "./components/detail/ProjectDetail.vue";
+import LeftCheveron from "./assets/icons/left-cheveron.svg";
+import RightCheveron from "./assets/icons/right-cheveron.svg";
 
 export default {
   name: "app",
   components: {
-    Content,
-    ProjectDetail
+    ProjectDetail,
+    LeftCheveron,
+    RightCheveron
   },
   data() {
     return {
@@ -77,6 +63,12 @@ export default {
   },
   computed: {},
   methods: {
+    goForward: function() {
+      this.$refs.view.goForward();
+    },
+    goBackward: function() {
+      this.$refs.view.goBackward();
+    },
     goCode() {
       this.$router.push({ path: "/code" });
     },
@@ -124,25 +116,18 @@ button:focus {
 /* fade */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.25s;
-  opacity: 1;
+  transition: opacity 0.5s;
 }
-
-.fade-enter,
-.fade-leave-to {
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
 
-#app {
-  transition: all 1s ease;
+.trans {
+  transition: opacity 0.5s ease-in-out;
 }
 
 #landing-buttons {
   letter-spacing: 2px;
-}
-
-button {
-  transition: all 0.5s ease;
 }
 
 .nav-link {
@@ -150,6 +135,7 @@ button {
 }
 
 #landing-header {
+  font-size: 5rem;
   letter-spacing: 0.1rem;
 }
 /* Animations */
@@ -172,27 +158,5 @@ button {
 .landing-button-enter, .landing-button-leave-to /* .fade-leave-active below version 2.1.8 */ {
   transform: translateY(25px);
   opacity: 0;
-}
-
-.blur {
-  -webkit-filter: blur(1px);
-  -moz-filter: blur(1px);
-  -o-filter: blur(1px);
-  -ms-filter: blur(12px);
-  filter: blur(1px);
-  backface-visibility: hidden;
-}
-
-#blur-filter {
-  transition: all 1s ease;
-  -webkit-filter: blur(0.001px);
-  -moz-filter: blur(0.001px);
-  -o-filter: blur(0.001px);
-  -ms-filter: blur(0.001px);
-  filter: blur(0.001px);
-}
-
-#trans {
-  transition: 0.3s all ease;
 }
 </style>

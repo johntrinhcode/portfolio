@@ -1,29 +1,7 @@
 <template>
   <div id="photo">
-    <div class="flex flex-col md:flex-row">
-      <div
-        v-for="image in row1"
-        v-bind:key="image"
-        class="bg-grey-300 w-full overflow-hidden relative container cursor-pointer"
-      >
-        <v-lazy-image :src="image" class="photo-object block w-full h-full object-cover" />
-      </div>
-    </div>
-    <div class="flex flex-col md:flex-row">
-      <div
-        v-for="image in row2"
-        v-bind:key="image"
-        class="bg-grey-300 w-full overflow-hidden relative container cursor-pointer"
-      >
-        <v-lazy-image :src="image" class="photo-object block w-full h-full object-cover" />
-      </div>
-    </div>
-    <div class="flex flex-col md:flex-row">
-      <div
-        v-for="image in row3"
-        v-bind:key="image"
-        class="bg-grey-300 w-full overflow-hidden relative container cursor-pointer"
-      >
+    <div class="flex flex-col md:flex-row h-screen">
+      <div v-for="image in rows[currentItem]" v-bind:key="image" class="bg-grey-300 w-full h-screen">
         <v-lazy-image :src="image" class="photo-object block w-full h-full object-cover" />
       </div>
     </div>
@@ -34,25 +12,31 @@
 export default {
   data() {
     return {
-      row1: [
-        require("@/assets/photography/r1-1.jpg"),
-        require("@/assets/photography/r1-2.jpg"),
-        require("@/assets/photography/r1-3.jpg")
-      ],
-      row2: [
-        require("@/assets/photography/r2-1.jpg"),
-        require("@/assets/photography/r2-2.jpg"),
-        require("@/assets/photography/r2-3.jpg")
-      ],
-      row3: [
-        require("@/assets/photography/r3-1.jpg"),
-        require("@/assets/photography/r3-2.jpg"),
-        require("@/assets/photography/r3-3.jpg")
+      currentItem: 0,
+      rows: [
+        [require("@/assets/photography/r1-1.jpg"), require("@/assets/photography/r1-2.jpg"), require("@/assets/photography/r1-3.jpg")],
+        [require("@/assets/photography/r2-1.jpg"), require("@/assets/photography/r2-2.jpg"), require("@/assets/photography/r2-3.jpg")],
+        [require("@/assets/photography/r3-1.jpg"), require("@/assets/photography/r3-2.jpg"), require("@/assets/photography/r3-3.jpg")]
       ]
     };
   },
   props: {},
-  methods: {}
+  methods: {
+    goForward: function() {
+      if (this.currentItem == this.rows.length - 1) {
+        this.currentItem = 0;
+      } else {
+        this.currentItem += 1;
+      }
+    },
+    goBackward: function() {
+      if (this.currentItem == 0) {
+        this.currentItem = this.rows.length - 1;
+      } else {
+        this.currentItem -= 1;
+      }
+    }
+  }
 };
 </script>
 
@@ -61,25 +45,6 @@ export default {
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent;
-}
-
-.container:hover .overlay {
-  opacity: 0.25;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-
-  opacity: 0;
-
-  height: 100%;
-  width: 100%;
-
-  transition: 0.5s ease;
 }
 
 .v-lazy-image {
