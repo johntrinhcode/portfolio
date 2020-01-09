@@ -1,5 +1,5 @@
 <template>
-  <div id="projects" class="h-full w-full">
+  <div id="projects" class="h-full w-full trans">
     <div class="detail relative h-full w-full flex items-center overflow-hidden">
       <div class="gradient absolute w-full h-full"></div>
       <div class="filter absolute w-full h-full"></div>

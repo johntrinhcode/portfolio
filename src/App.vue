@@ -11,8 +11,8 @@
     -->
     <!-- Arrow Icons -->
     <div id="cheverons" class="fixed bottom-0 left-0 m-4 md:m-12 flex z-50">
-      <LeftCheveron @click="goBackward" class="w-4 md:w-8 fill-current text-white cursor-pointer" />
-      <RightCheveron @click="goForward" class="w-4 md:w-8 ml-8 fill-current text-white cursor-pointer" />
+      <LeftCheveron @click="goBackward" class="w-4 h-4 md:w-8 fill-current text-white cursor-pointer" />
+      <RightCheveron @click="goForward" class="w-4 h-4 md:w-8 ml-8 fill-current text-white cursor-pointer" />
     </div>
     <!-- J title -->
     <div>
@@ -123,7 +123,7 @@ button:focus {
 }
 
 .trans {
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease;
 }
 
 #landing-buttons {
