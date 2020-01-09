@@ -2,47 +2,52 @@
   <div id="app" class="relative w-full h-full flex flex-col bg-black">
     <!-- Arrow Icons -->
     <div id="cheverons" class="fixed bottom-0 left-0 m-4 md:m-12 flex z-50">
-      <LeftCheveron
-        @click="goBackward"
-        class="w-4 h-4 md:w-8 fill-current text-white cursor-pointer"
-      />
-      <RightCheveron
-        @click="goForward"
-        class="w-4 h-4 md:w-8 ml-8 fill-current text-white cursor-pointer"
-      />
+      <LeftCheveron @click="goBackward" class="w-4 h-4 md:w-8 fill-current text-white cursor-pointer" />
+      <RightCheveron @click="goForward" class="w-4 h-4 md:w-8 ml-8 fill-current text-white cursor-pointer" />
     </div>
     <!-- J title -->
     <div>
-      <h1
-        id="landing-header"
-        class="fixed m-2 md:m-6 text-white font-body font-extrabold cursor-default leading-none z-50"
-      >J.</h1>
+      <h1 id="landing-header" class="fixed m-2 md:m-6 text-white font-body font-extrabold cursor-default leading-none z-50">J.</h1>
     </div>
     <!-- NAV -->
-    <div
-      id="landing-buttons"
-      class="fixed right-0 flex flex-col text-right h-full mr-6 text-xs md:text-xl font-body z-50"
-    >
+    <div id="landing-buttons" class="fixed right-0 flex flex-col text-right h-full mr-6 text-xs md:text-xl font-body z-50">
       <div class="h-16 md:h-full"></div>
       <div class="md:h-full md:flex md:justify-end">
-        <button @click="goCode" class="nav-link font-body font-bold text-white">CODE</button>
+        <router-link to="#code-page">
+          <button class="nav-link font-body font-bold text-white">CODE</button>
+        </router-link>
       </div>
 
       <div class="md:h-full md:flex md:justify-end">
-        <button @click="goPhoto" class="nav-link font-body font-bold text-white">PHOTO</button>
+        <router-link to="#photo-page">
+          <button class="nav-link font-body font-bold text-white">PHOTO</button>
+        </router-link>
       </div>
 
       <div class="h-full md:flex md:justify-end">
-        <button @click="goContact" class="nav-link font-body font-bold text-white">CONTACT</button>
+        <router-link to="#contact-page">
+          <button class="nav-link font-body font-bold text-white">CONTACT</button>
+        </router-link>
       </div>
       <div class="h-full"></div>
     </div>
 
     <!-- Route here -->
+    <!--
     <div id="content-container" class="relative bg-black w-full h-full">
       <transition name="fade" mode="out-in">
         <router-view ref="view"></router-view>
       </transition>
+    </div>
+    -->
+    <div id="code-page" class="w-full h-screen">
+      <Code ref="codeView" />
+    </div>
+    <div id="photo-page" class="w-full h-screen">
+      <Photo ref="photoView" />
+    </div>
+    <div id="contact-page" class="w-full h-screen">
+      <Contact ref="contactView" />
     </div>
   </div>
 </template>
@@ -52,12 +57,19 @@ import ProjectDetail from "./components/detail/ProjectDetail.vue";
 import LeftCheveron from "./assets/icons/left-cheveron.svg";
 import RightCheveron from "./assets/icons/right-cheveron.svg";
 
+import Code from "./components/page/Code";
+import Photo from "./components/page/Photo";
+import Contact from "./components/page/Contact";
+
 export default {
   name: "app",
   components: {
     ProjectDetail,
     LeftCheveron,
-    RightCheveron
+    RightCheveron,
+    Code,
+    Photo,
+    Contact
   },
   data() {
     return {
@@ -67,19 +79,29 @@ export default {
   computed: {},
   methods: {
     goForward: function() {
-      this.$refs.view.goForward();
+      if (this.$router.currentRoute.hash == "#code-page") {
+        this.$refs.codeView.goForward();
+      } else if (this.$router.currentRoute.hash == "#photo-page") {
+        this.$refs.photoView.goForward();
+      }
+      //    this.$refs.view.goForward();
     },
     goBackward: function() {
-      this.$refs.view.goBackward();
+      if (this.$router.currentRoute.hash == "#code-page") {
+        this.$refs.codeView.goBackward();
+      } else if (this.$router.currentRoute.hash == "#photo-page") {
+        this.$refs.photoView.goBackward();
+      }
+      //      this.$refs.view.goBackward();
     },
     goCode() {
-      this.$router.push({ path: "/code" });
+      this.$router.push({ path: "/code", name: "code-page" });
     },
     goPhoto() {
-      this.$router.push({ path: "/photo" });
+      this.$router.push({ path: "/photo", name: "photo-page" });
     },
     goContact() {
-      this.$router.push({ path: "/contact" });
+      this.$router.push({ path: "/contact", name: "contact-page" });
     },
     goLanding() {
       this.$router.push({ path: "/" });

@@ -29,12 +29,14 @@ Vue.use(VueLazyLoad, {
 
 const router = new VueRouter({
   routes,
+  mode: "history",
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
-      return {
-        selector: to.hash
-        // , offset: { x: 0, y: 10 }
-      };
+      return window.scrollTo({ top: document.querySelector(to.hash).offsetTop, behavior: "smooth" });
+    } else if (savedPosition) {
+      return savedPosition;
+    } else {
+      return window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }
 });

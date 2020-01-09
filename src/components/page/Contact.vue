@@ -1,5 +1,5 @@
 <template>
-  <div id="contact" class="relative flex flex-col w-full h-full text-white">
+  <div id="contact" class="relative flex flex-col w-full h-full text-white bg-black">
     <div id="contact-info" class="flex flex-col w-full items-center my-auto mx-auto text-center">
       <p class="font-head font-bold text-xl leading-none">Thanks for looking,</p>
       <p class="text-xs">you can reach me at:</p>
