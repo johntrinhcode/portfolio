@@ -5,7 +5,7 @@ import Photo from "./components/page/Photo.vue";
 import About from "./components/page/About.vue";
 
 export default [
-  { path: "/", name: "App", component: App, props: true },
+  { path: "/", redirect: "/#code-page", name: "App", component: App, props: true },
   { path: "/code", name: "Code", component: Code, props: true },
   { path: "/photo", name: "Photo", component: Photo, props: true },
   { path: "/about", name: "About", component: About, props: true }
