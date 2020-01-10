@@ -100,7 +100,7 @@ export default {
   computed: {},
   methods: {
     goForward: function() {
-      if (this.$router.currentRoute.hash == "#code-page") {
+      if (this.$router.currentRoute.hash == "#code-page" || this.$router.currentProject.hash == "") {
         this.$refs.codeView.goForward();
       } else if (this.$router.currentRoute.hash == "#photo-page") {
         this.$refs.photoView.goForward();
