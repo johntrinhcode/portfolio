@@ -1,10 +1,13 @@
 <template>
   <div id="app" class="relative w-full h-full flex flex-col bg-black">
     <!-- Arrow Icons -->
-    <div id="cheverons" class="fixed bottom-0 left-0 m-4 md:m-12 flex z-50">
-      <LeftCheveron @click="goBackward" class="w-4 h-4 md:w-8 fill-current text-white cursor-pointer" />
-      <RightCheveron @click="goForward" class="w-4 h-4 md:w-8 ml-8 fill-current text-white cursor-pointer" />
-    </div>
+
+    <transition name="fade">
+      <div v-if="$route.hash != '#about-page'" id="cheverons" class="fixed bottom-0 left-0 m-4 md:m-12 flex z-50">
+        <LeftCheveron @click="goBackward" class="w-4 h-4 md:w-8 fill-current text-white cursor-pointer" />
+        <RightCheveron @click="goForward" class="w-4 h-4 md:w-8 ml-8 fill-current text-white cursor-pointer" />
+      </div>
+    </transition>
     <!-- J title -->
     <div>
       <h1 id="landing-header" class="fixed m-2 md:m-6 text-white font-body font-extrabold cursor-default leading-none z-50">J.</h1>
