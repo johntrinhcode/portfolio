@@ -13,21 +13,42 @@
     <div id="landing-buttons" class="fixed right-0 flex flex-col text-right h-full mr-6 text-xs md:text-xl font-body z-50">
       <div class="h-16 md:h-full"></div>
       <div class="md:h-full md:flex md:justify-end">
-        <router-link to="#code-page">
-          <button class="nav-link font-body font-bold text-white">CODE</button>
-        </router-link>
+        <button
+          @click="
+            () => {
+              scrollNav('#code-page');
+            }
+          "
+          class="nav-link font-body font-bold text-white"
+        >
+          CODE
+        </button>
       </div>
 
       <div class="md:h-full md:flex md:justify-end">
-        <router-link to="#photo-page">
-          <button class="nav-link font-body font-bold text-white">PHOTO</button>
-        </router-link>
+        <button
+          @click="
+            () => {
+              scrollNav('#photo-page');
+            }
+          "
+          class="nav-link font-body font-bold text-white"
+        >
+          PHOTO
+        </button>
       </div>
 
       <div class="h-full md:flex md:justify-end">
-        <router-link to="#about-page">
-          <button class="nav-link font-body font-bold text-white">ABOUT</button>
-        </router-link>
+        <button
+          @click="
+            () => {
+              scrollNav('#about-page');
+            }
+          "
+          class="nav-link font-body font-bold text-white"
+        >
+          ABOUT
+        </button>
       </div>
       <div class="h-full"></div>
     </div>
@@ -102,9 +123,23 @@ export default {
     },
     unsetCurrentProject() {
       this.currentProject = null;
+    },
+    scrollRefresh: function(hashbang) {
+      location.href = hashbang;
+    },
+    scrollNav: function(hashtag) {
+      if (this.$route.hash == hashtag) {
+        window.scrollTo({ top: document.querySelector(hashtag).offsetTop, behavior: "smooth" });
+      } else {
+        this.$router.push(hashtag);
+      }
     }
   },
-  mounted() {}
+  mounted() {
+    if (this.$route.hash) {
+      setTimeout(() => this.scrollRefresh(this.$route.hash), 1000);
+    }
+  }
 };
 </script>
 

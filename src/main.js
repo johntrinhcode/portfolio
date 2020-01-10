@@ -1,4 +1,5 @@
 import Vue from "vue";
+import VueScrollTo from "vue-scrollto";
 import VueRouter from "vue-router";
 import VueLazyLoad from "vue-lazyload";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -19,6 +20,19 @@ library.add(faFacebook);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 Vue.config.productionTip = false;
+Vue.use(VueScrollTo, {
+  container: "body",
+  duration: 500,
+  easing: "ease",
+  offset: 0,
+  force: true,
+  cancelable: true,
+  onStart: false,
+  onDone: false,
+  onCancel: false,
+  x: false,
+  y: true
+});
 Vue.use(VueRouter);
 Vue.use(VLazyImagePlugin);
 Vue.use(VueLazyLoad, {
