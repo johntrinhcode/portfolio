@@ -56,6 +56,45 @@ export default {
     return {
       currentItem: 0,
       projects: [
+          {
+          title: "Jurnul",
+          description: "A web application that lets you record a log about your day and track your emotions.",
+          implementation: {
+            front: [
+              "The visual design of this project was made in Figma.",
+              "The frontend of this application is developed using the Vue.js framework. It handles state management using Vue's own Vuex solution. Routing within the application is also handled with Vue's Router solution.",
+              "Tailwind CSS is the CSS framework of choice, allowing for rapid styling and protoyping throughout the development process."
+            ],
+            back: [
+              "The backend of this application is developed with NodeJS using the Express.js framework.",
+              "Authentication is implemented using JSON Web Token (JWT) authentication.",
+              "MongoDB was the database of choice for holding user information."
+            ],
+            deployment: ["The backend API is deployed with Heroku.", "The Vue.js frontend is deployed with Netlify."]
+          },
+
+          image: require("../../assets/jurnul.png"),
+          date: "December 2019 - January 2020",
+          link: "https://jurnul.netlify.com/",
+          gitlink: "https://github.com/johntrinhcode/jurnul-frontend",
+          technologies: ["Vue.js", "Node"]
+        },
+        {
+          title: "Portfolio",
+          description: "A static website built to showcase the work that I do.",
+          implementation: {
+            front: [
+              "The frontend of this application is developed using the Vue.js framework.",
+              "Images utilize lazy-loading to improve user experience during wait times, seen in the 'Photo' section.",
+              "Tailwind CSS is the CSS framework of choice, allowing for rapid styling and protoyping throughout the development process."
+            ],
+            deployment: ["The Vue.js frontend is deployed with Netlify."]
+          },
+          date: "December 2019",
+          image: require("../../assets/portfolio.jpg"),
+          link: "https://www.johntrinh.com",
+          gitlink: "https://github.com/johntrinhcode/portfolio"
+        },
         {
           title: "Bud.",
           description: "A web application that allows users to create their own garden designs and share with others.",
@@ -79,22 +118,6 @@ export default {
           gitlink: "",
         },
         {
-          title: "Portfolio",
-          description: "A static website built to showcase the work that I do.",
-          implementation: {
-            front: [
-              "The frontend of this application is developed using the Vue.js framework.",
-              "Images utilize lazy-loading to improve user experience during wait times, seen in the 'Photo' section.",
-              "Tailwind CSS is the CSS framework of choice, allowing for rapid styling and protoyping throughout the development process."
-            ],
-            deployment: ["The Vue.js frontend is deployed with Netlify."]
-          },
-          date: "December 2019",
-          image: require("../../assets/portfolio.jpg"),
-          link: "https://www.johntrinh.com",
-          gitlink: "https://github.com/johntrinhcode/portfolio"
-        },
-        {
           title: "Gem",
           description:
             "A modular web widget built during my time as an intern at IBM. It is showcased on IBM's About Us page to deliver interesting historical information about the company.",
@@ -114,29 +137,6 @@ export default {
           link: "https://www.ibm.com/ibm/us/en/",
           gitlink: "",
         },
-        {
-          title: "Jurnul",
-          description: "A web application that lets you record a log about your day and track your emotions.",
-          implementation: {
-            front: [
-              "The visual design of this project was made in Figma.",
-              "The frontend of this application is developed using the Vue.js framework. It handles state management using Vue's own Vuex solution. Routing within the application is also handled with Vue's Router solution.",
-              "Tailwind CSS is the CSS framework of choice, allowing for rapid styling and protoyping throughout the development process."
-            ],
-            back: [
-              "The backend of this application is developed with NodeJS using the Express.js framework.",
-              "Authentication is implemented using JSON Web Token (JWT) authentication.",
-              "MongoDB was the database of choice for holding user information."
-            ],
-            deployment: ["The backend API is deployed with Heroku.", "The Vue.js frontend is deployed with Netlify."]
-          },
-
-          image: require("../../assets/jurnul.png"),
-          date: "December 2019 - January 2020",
-          link: "https://jurnul.netlify.com/",
-          gitlink: "https://github.com/johntrinhcode/jurnul-frontend",
-          technologies: ["Vue.js", "Node"]
-        }
       ]
     };
   },

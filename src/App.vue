@@ -111,7 +111,7 @@ export default {
       //    this.$refs.view.goForward();
     },
     goBackward: function() {
-      if (this.$router.currentRoute.hash == "#code-page") {
+      if (this.$router.currentRoute.hash == "#code-page" || this.$router.currentRoute.hash == "") {
         this.$refs.codeView.goBackward();
       } else if (this.$router.currentRoute.hash == "#photo-page") {
         this.$refs.photoView.goBackward();
