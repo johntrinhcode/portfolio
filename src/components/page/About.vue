@@ -1,7 +1,7 @@
 <template>
   <div id="about" class="flex w-full h-full text-white bg-black">
     <div class="flex flex-col md:flex-row md:w-1/2 h-auto p-8 mx-auto my-auto">
-      <div class="w-full h-128 md:h-auto md:my-auto">
+      <div class="h-64 md:h-auto md:my-auto">
         <v-lazy-image :src="selfie" class="w-full h-full object-cover" />
       </div>
       <div class="flex flex-col mt-4 md:w-full md:ml-4 md:my-auto">
