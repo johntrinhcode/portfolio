@@ -7,6 +7,7 @@
         :title="projects[currentItem].title"
         :date="projects[currentItem].date"
         :link="projects[currentItem].link"
+        :gitlink="projects[currentItem].gitlink"
         :image="projects[currentItem].image"
       />
       <ProjectDetail
@@ -15,6 +16,7 @@
         :title="projects[currentItem].title"
         :date="projects[currentItem].date"
         :link="projects[currentItem].link"
+        :gitlink="projects[currentItem].gitlink"
         :image="projects[currentItem].image"
       />
       <ProjectDetail
@@ -23,6 +25,7 @@
         :title="projects[currentItem].title"
         :date="projects[currentItem].date"
         :link="projects[currentItem].link"
+        :gitlink="projects[currentItem].gitlink"
         :image="projects[currentItem].image"
       />
       <ProjectDetail
@@ -31,6 +34,7 @@
         :title="projects[currentItem].title"
         :date="projects[currentItem].date"
         :link="projects[currentItem].link"
+        :gitlink="projects[currentItem].gitlink"
         :image="projects[currentItem].image"
       />
     </transition>
@@ -71,7 +75,8 @@ export default {
           },
           image: require("../../assets/bud.jpg"),
           date: "October 2019 - Present",
-          link: "https://www.beediscovery.com"
+          link: "https://www.beediscovery.com",
+          gitlink: "",
         },
         {
           title: "Portfolio",
@@ -86,7 +91,8 @@ export default {
           },
           date: "December 2019",
           image: require("../../assets/portfolio.jpg"),
-          link: "https://www.johntrinh.com"
+          link: "https://www.johntrinh.com",
+          gitlink: "https://github.com/johntrinhcode/portfolio"
         },
         {
           title: "Gem",
@@ -105,7 +111,8 @@ export default {
           },
           image: require("../../assets/gem.jpg"),
           date: "May 2019 - August 2019",
-          link: "https://www.ibm.com/ibm/us/en/"
+          link: "https://www.ibm.com/ibm/us/en/",
+          gitlink: "",
         },
         {
           title: "Jurnul",
@@ -127,6 +134,7 @@ export default {
           image: require("../../assets/jurnul.png"),
           date: "December 2019 - January 2020",
           link: "https://jurnul.netlify.com/",
+          gitlink: "https://github.com/johntrinhcode/jurnul-frontend",
           technologies: ["Vue.js", "Node"]
         }
       ]

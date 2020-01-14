@@ -7,17 +7,29 @@
       <div class="absolute flex flex-col h-32 w-64 mx-auto right-0 left-0 card text-sm text-left">
         <p class="text-center text-white text-6xl font-bold font-head leading-none z-10">{{ title }}</p>
         <p class="text-center text-xs text-white z-10">{{ date }}</p>
-        <button id="explore-button" class="mx-auto text-white text-sm mt-4 border-white border p-2 z-10">
-          <a :href="link" target="_blank" rel="noopener noreferrer">EXPLORE</a>
-        </button>
+        <div class="flex mx-auto items-center">
+          <button id="explore-button" class="mx-1 text-white text-sm mt-4 border-white border p-2 z-10">
+            <a :href="link" target="_blank" rel="noopener noreferrer"><Globe class="w-6 h-6 fill-current text-white" /></a>
+          </button>
+          <button v-if="gitlink != ''" id="github-button" class="mx-1 text-white text-sm mt-4 border-white border p-2 z-10">
+            <a :href="gitlink" target="_blank" rel="noopener noreferrer"><Git class="w-6 h-6 fill-current text-white" /></a>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Globe from "../../assets/icons/globe.svg";
+import Git from "../../assets/icons/github.svg";
+
 export default {
   name: "ProjectDetail",
+  components: {
+    Globe,
+    Git
+  },
   props: {
     title: {
       required: true
@@ -31,6 +43,10 @@ export default {
     },
     link: {
       required: true
+    },
+    gitlink: {
+      required: false,
+      type: String
     }
   },
   mounted() {},
