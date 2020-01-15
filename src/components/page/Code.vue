@@ -77,8 +77,7 @@ export default {
       projects: [
         {
           title: "Jurnul",
-          description:
-            "A journaling application with an emphasis on recognizing patterns and trends in mood and giving the user a personalized environment to write about their day.",
+          description: "A journaling application with an emphasis on logging day to day moods.",
           implementation: {
             front: [
               "The visual design of this project was made in Figma.",
@@ -131,7 +130,7 @@ export default {
           image: require("../../assets/portfolio.jpg"),
           link: "https://www.johntrinh.com",
           gitlink: "https://github.com/johntrinhcode/portfolio",
-          technologies: ["Vue.js", "Node.js", "MongoDB"]
+          technologies: ["Vue.js", "Node.js"]
         },
         {
           title: "Bud.",
@@ -174,7 +173,8 @@ export default {
           image: require("../../assets/gem.jpg"),
           date: "May 2019 - August 2019",
           link: "https://www.ibm.com/ibm/us/en/",
-          gitlink: ""
+          gitlink: "",
+          technologies: ["Vue.js", "Node.js", "MongoDB"]
         }
       ]
     };
