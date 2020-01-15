@@ -5,37 +5,56 @@
         v-if="currentItem == 0"
         :key="0"
         :title="projects[currentItem].title"
+        :description="projects[currentItem].description"
         :date="projects[currentItem].date"
         :link="projects[currentItem].link"
         :gitlink="projects[currentItem].gitlink"
         :image="projects[currentItem].image"
+        :technologies="projects[currentItem].technologies"
       />
       <ProjectDetail
         v-else-if="currentItem == 1"
         :key="1"
         :title="projects[currentItem].title"
+        :description="projects[currentItem].description"
         :date="projects[currentItem].date"
         :link="projects[currentItem].link"
         :gitlink="projects[currentItem].gitlink"
         :image="projects[currentItem].image"
+        :technologies="projects[currentItem].technologies"
       />
       <ProjectDetail
         v-else-if="currentItem == 2"
         :key="2"
         :title="projects[currentItem].title"
+        :description="projects[currentItem].description"
         :date="projects[currentItem].date"
         :link="projects[currentItem].link"
         :gitlink="projects[currentItem].gitlink"
         :image="projects[currentItem].image"
+        :technologies="projects[currentItem].technologies"
+      />
+      <ProjectDetail
+        v-else-if="currentItem == 3"
+        :key="3"
+        :title="projects[currentItem].title"
+        :description="projects[currentItem].description"
+        :date="projects[currentItem].date"
+        :link="projects[currentItem].link"
+        :gitlink="projects[currentItem].gitlink"
+        :image="projects[currentItem].image"
+        :technologies="projects[currentItem].technologies"
       />
       <ProjectDetail
         v-else
-        :key="3"
+        :key="4"
         :title="projects[currentItem].title"
+        :description="projects[currentItem].description"
         :date="projects[currentItem].date"
         :link="projects[currentItem].link"
         :gitlink="projects[currentItem].gitlink"
         :image="projects[currentItem].image"
+        :technologies="projects[currentItem].technologies"
       />
     </transition>
   </div>
@@ -59,7 +78,7 @@ export default {
         {
           title: "Jurnul",
           description:
-            "A web application that lets you record a log about your day and track your emotions.",
+            "A journaling application with an emphasis on recognizing patterns and trends in mood and giving the user a personalized environment to write about their day.",
           implementation: {
             front: [
               "The visual design of this project was made in Figma.",
@@ -71,21 +90,35 @@ export default {
               "Authentication is implemented using JSON Web Token (JWT) authentication.",
               "MongoDB was the database of choice for holding user information."
             ],
-            deployment: [
-              "The backend API is deployed with Heroku.",
-              "The Vue.js frontend is deployed with Netlify."
-            ]
+            deployment: ["The backend API is deployed with Heroku.", "The Vue.js frontend is deployed with Netlify."]
           },
 
           image: require("../../assets/jurnul.jpeg"),
-          date: "December 2019 - January 2020",
+          date: "December 2019 - Present",
           link: "https://jurnul.netlify.com/",
           gitlink: "https://github.com/johntrinhcode/jurnul-frontend",
-          technologies: ["Vue.js", "Node"]
+          technologies: ["Vue.js", "Node.js", "MongoDB"]
+        },
+        {
+          title: "Soleism",
+          description: "A marketplace application for local aftermarket sneaker buying, selling and trading.",
+          implementation: {
+            front: [
+              "The frontend of this application is developed using the Vue.js framework.",
+              "Images utilize lazy-loading to improve user experience during wait times, seen in the 'Photo' section.",
+              "Tailwind CSS is the CSS framework of choice, allowing for rapid styling and protoyping throughout the development process."
+            ],
+            deployment: ["The Vue.js frontend is deployed with Netlify."]
+          },
+          date: "January 2020 - Present",
+          image: require("../../assets/soleism.jpg"),
+          link: "",
+          gitlink: "",
+          technologies: ["Vue.js", "Nuxt.js", "Node.js", "PostgreSQL", "Flutter"]
         },
         {
           title: "Portfolio",
-          description: "A static website built to showcase the work that I do.",
+          description: "The first iteration of my portfolio website, built to showcase my work!",
           implementation: {
             front: [
               "The frontend of this application is developed using the Vue.js framework.",
@@ -97,12 +130,12 @@ export default {
           date: "December 2019",
           image: require("../../assets/portfolio.jpg"),
           link: "https://www.johntrinh.com",
-          gitlink: "https://github.com/johntrinhcode/portfolio"
+          gitlink: "https://github.com/johntrinhcode/portfolio",
+          technologies: ["Vue.js", "Node.js", "MongoDB"]
         },
         {
           title: "Bud.",
-          description:
-            "A web application that allows users to create their own garden designs and share with others.",
+          description: "A web application that allows users to create their own garden designs and share with others.",
           implementation: {
             front: [
               "The frontend of this application was developed with the Vue.js framework.",
@@ -120,7 +153,8 @@ export default {
           image: require("../../assets/bud.jpg"),
           date: "October 2019 - Present",
           link: "https://www.beediscovery.com",
-          gitlink: ""
+          gitlink: "",
+          technologies: ["Vue.js", "Node.js", "MongoDB"]
         },
         {
           title: "Gem",
@@ -135,9 +169,7 @@ export default {
               "The backend of this application is developed with NodeJS using the Express.js framework.",
               "Developed a REST API to execute basic CRUD operations on the MongoDB database."
             ],
-            deployment: [
-              "This application was deployed to IBM's own cloud solution and later on made it's way to their About Us page via Drupal."
-            ]
+            deployment: ["This application was deployed to IBM's own cloud solution and later on made it's way to their About Us page via Drupal."]
           },
           image: require("../../assets/gem.jpg"),
           date: "May 2019 - August 2019",
