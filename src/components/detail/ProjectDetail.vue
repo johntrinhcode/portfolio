@@ -22,25 +22,26 @@
         -->
         <p class="text-center text-white z-10 mt-2">{{ description }}</p>
 
-        <div class="flex mx-auto items-center h-6">
-          <button
-            v-if="link != ''"
-            id="explore-button"
-            class="mx-1 text-white text-sm mt-4 border-white border p-2 z-10"
-          >
-            <a :href="link" target="_blank" rel="noopener noreferrer">
+        <div class="flex mx-auto items-center mt-4 z-10">
+          <a :href="link" target="_blank" rel="noopener noreferrer">
+            <button
+              v-if="link != ''"
+              id="explore-button"
+              class="mx-1 text-white text-sm border-white border p-2 z-10"
+            >
               <Globe class="w-6 h-6 fill-current text-white" />
-            </a>
-          </button>
-          <button
-            v-if="gitlink != ''"
-            id="github-button"
-            class="mx-1 text-white text-sm mt-4 border-white border p-2 z-10"
-          >
-            <a :href="gitlink" target="_blank" rel="noopener noreferrer">
+            </button>
+          </a>
+
+          <a :href="gitlink" target="_blank" rel="noopener noreferrer">
+            <button
+              v-if="gitlink != ''"
+              id="github-button"
+              class="mx-1 text-white text-sm border-white border p-2 z-10"
+            >
               <Git class="w-6 h-6 fill-current text-white" />
-            </a>
-          </button>
+            </button>
+          </a>
         </div>
       </div>
     </div>
