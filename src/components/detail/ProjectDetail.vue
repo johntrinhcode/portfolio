@@ -9,6 +9,7 @@
       >
         <p class="text-center text-white text-6xl font-bold font-head leading-none z-10">{{ title }}</p>
         <p class="text-center text-xs text-white z-10">{{ date }}</p>
+        <!--
         <div class="flex mx-auto z-10">
           <div v-for="tech in technologies" :key="tech" class="h-full">
             <component
@@ -18,6 +19,7 @@
             ></component>
           </div>
         </div>
+        -->
         <p class="text-center text-white z-10 mt-2">{{ description }}</p>
 
         <div class="flex mx-auto items-center">
