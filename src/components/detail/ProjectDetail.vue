@@ -20,10 +20,11 @@
           </div>
         </div>
         -->
+        <!--
         <div class="h-full z-10 mt-2">
           <p class="text-center text-white">{{ description }}</p>
         </div>
-
+        -->
         <div class="flex h-full mx-auto items-center mt-4 z-10">
           <a :href="link" target="_blank" rel="noopener noreferrer">
             <button
