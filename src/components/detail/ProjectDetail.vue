@@ -25,25 +25,19 @@
           <p class="text-center text-white">{{ description }}</p>
         </div>
         -->
-        <div class="flex h-full mx-auto items-center mt-4 z-10">
-          <a :href="link" target="_blank" rel="noopener noreferrer">
-            <button
-              v-if="link != ''"
-              id="explore-button"
-              class="mx-1 text-white text-sm border-white border p-2 z-10"
-            >
-              <Globe class="w-6 h-6 fill-current text-white" />
-            </button>
+        <div class="flex mx-auto items-center mt-2 z-10">
+          <a v-if="link != ''" :href="link" target="_blank" rel="noopener noreferrer" class="mx-1">
+            <Globe class="w-6 h-6 fill-current text-white" />
           </a>
 
-          <a :href="gitlink" target="_blank" rel="noopener noreferrer">
-            <button
-              v-if="gitlink != ''"
-              id="github-button"
-              class="mx-1 text-white text-sm border-white border p-2 z-10"
-            >
-              <Git class="w-6 h-6 fill-current text-white" />
-            </button>
+          <a
+            v-if="gitlink != ''"
+            :href="gitlink"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mx-1"
+          >
+            <Git class="w-6 h-6 fill-current text-white" />
           </a>
         </div>
       </div>
