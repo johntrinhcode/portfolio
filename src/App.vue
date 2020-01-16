@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="relative w-full h-screen flex flex-col bg-black">
+  <div id="app" class="relative w-full flex flex-col bg-black">
     <!-- Arrow Icons -->
 
     <transition name="fade">
@@ -74,13 +74,13 @@
       </transition>
     </div>
     -->
-    <div id="code-page" class="w-full h-screen">
+    <div id="code-page" class="w-full">
       <Code ref="codeView" />
     </div>
-    <div id="photo-page" class="w-full h-screen">
+    <div id="photo-page" class="w-full">
       <Photo ref="photoView" />
     </div>
-    <div id="about-page" class="w-full h-screen">
+    <div id="about-page" class="w-full">
       <About ref="aboutView" />
     </div>
   </div>
@@ -158,14 +158,26 @@ export default {
     }
   },
   mounted() {
-    if (this.$route.hash) {
-      setTimeout(() => this.scrollRefresh(this.$route.hash), 1000);
-    }
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+
+    window.addEventListener("resize", () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    });
   }
 };
 </script>
 
 <style>
+#app,
+#code-page,
+#photo-page,
+#about-page {
+  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
+}
+
 html,
 body {
   height: 100%;

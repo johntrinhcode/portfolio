@@ -4,23 +4,37 @@
       <div class="gradient absolute w-full h-full z-10"></div>
       <div class="filter absolute w-full h-full z-10"></div>
       <v-lazy-image :src="image" class="h-full w-full object-cover z-0" />
-      <div class="absolute flex flex-col h-32 w-64 md:w-128 mx-auto right-0 left-0 card text-sm text-left">
+      <div
+        class="absolute flex flex-col h-32 w-64 md:w-128 mx-auto right-0 left-0 card text-sm text-left"
+      >
         <p class="text-center text-white text-6xl font-bold font-head leading-none z-10">{{ title }}</p>
         <p class="text-center text-xs text-white z-10">{{ date }}</p>
         <div class="flex mx-auto z-10">
-          <div v-for="tech in technologies" :key="tech">
-            <component :is="icons[tech]" class="w-4 h-4 fill-current text-white mx-1" :aria-placeholder="tech"></component>
+          <div v-for="tech in technologies" :key="tech" class="h-full">
+            <component
+              :is="icons[tech]"
+              class="w-4 h-4 fill-current text-white mx-1"
+              :aria-placeholder="tech"
+            ></component>
           </div>
         </div>
         <p class="text-center text-white z-10 mt-2">{{ description }}</p>
 
         <div class="flex mx-auto items-center">
-          <button v-if="link != ''" id="explore-button" class="mx-1 text-white text-sm mt-4 border-white border p-2 z-10">
+          <button
+            v-if="link != ''"
+            id="explore-button"
+            class="mx-1 text-white text-sm mt-4 border-white border p-2 z-10"
+          >
             <a :href="link" target="_blank" rel="noopener noreferrer">
               <Globe class="w-6 h-6 fill-current text-white" />
             </a>
           </button>
-          <button v-if="gitlink != ''" id="github-button" class="mx-1 text-white text-sm mt-4 border-white border p-2 z-10">
+          <button
+            v-if="gitlink != ''"
+            id="github-button"
+            class="mx-1 text-white text-sm mt-4 border-white border p-2 z-10"
+          >
             <a :href="gitlink" target="_blank" rel="noopener noreferrer">
               <Git class="w-6 h-6 fill-current text-white" />
             </a>
@@ -112,7 +126,11 @@ export default {
   transition: all 0.5s ease;
   opacity: 0.5;
   background: rgb(0, 0, 0);
-  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(9, 9, 121, 0) 74%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(9, 9, 121, 0) 74%
+  );
 }
 
 .filter {
