@@ -20,7 +20,9 @@
           </div>
         </div>
         -->
-        <p class="text-center text-white z-10 mt-2">{{ description }}</p>
+        <div class="h-full z-10 mt-2">
+          <p class="text-center text-white">{{ description }}</p>
+        </div>
 
         <div class="flex mx-auto items-center mt-4 z-10">
           <a :href="link" target="_blank" rel="noopener noreferrer">
