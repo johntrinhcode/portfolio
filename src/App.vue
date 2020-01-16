@@ -1,19 +1,35 @@
 <template>
-  <div id="app" class="relative w-full h-full flex flex-col bg-black">
+  <div id="app" class="relative w-full h-screen flex flex-col bg-black">
     <!-- Arrow Icons -->
 
     <transition name="fade">
-      <div v-if="$route.hash != '#about-page'" id="cheverons" class="fixed bottom-0 left-0 m-4 md:m-12 flex z-50">
-        <LeftCheveron @click="goBackward" class="w-4 h-4 md:w-8 fill-current text-white cursor-pointer" />
-        <RightCheveron @click="goForward" class="w-4 h-4 md:w-8 ml-8 fill-current text-white cursor-pointer" />
+      <div
+        v-if="$route.hash != '#about-page'"
+        id="cheverons"
+        class="fixed bottom-0 left-0 m-4 md:m-12 flex z-50"
+      >
+        <LeftCheveron
+          @click="goBackward"
+          class="w-4 h-4 md:w-8 fill-current text-white cursor-pointer"
+        />
+        <RightCheveron
+          @click="goForward"
+          class="w-4 h-4 md:w-8 ml-8 fill-current text-white cursor-pointer"
+        />
       </div>
     </transition>
     <!-- J title -->
     <div>
-      <h1 id="landing-header" class="fixed m-2 md:m-6 text-white font-body font-extrabold cursor-default leading-none z-50">J.</h1>
+      <h1
+        id="landing-header"
+        class="fixed m-2 md:m-6 text-white font-body font-extrabold cursor-default leading-none z-50"
+      >J.</h1>
     </div>
     <!-- NAV -->
-    <div id="landing-buttons" class="fixed right-0 flex flex-col text-right h-full mr-6 text-xs md:text-xl font-body z-50">
+    <div
+      id="landing-buttons"
+      class="fixed right-0 flex flex-col text-right h-full mr-6 text-xs md:text-xl font-body z-50"
+    >
       <div class="h-16 md:h-full"></div>
       <div class="md:h-full md:flex md:justify-end">
         <button
@@ -23,9 +39,7 @@
             }
           "
           class="nav-link font-body font-bold text-white"
-        >
-          CODE
-        </button>
+        >CODE</button>
       </div>
 
       <div class="md:h-full md:flex md:justify-end">
@@ -36,9 +50,7 @@
             }
           "
           class="nav-link font-body font-bold text-white"
-        >
-          PHOTO
-        </button>
+        >PHOTO</button>
       </div>
 
       <div class="h-full md:flex md:justify-end">
@@ -49,9 +61,7 @@
             }
           "
           class="nav-link font-body font-bold text-white"
-        >
-          ABOUT
-        </button>
+        >ABOUT</button>
       </div>
       <div class="h-full"></div>
     </div>
@@ -103,7 +113,10 @@ export default {
   computed: {},
   methods: {
     goForward: function() {
-      if (this.$router.currentRoute.hash == "#code-page" || this.$router.currentRoute.hash == "") {
+      if (
+        this.$router.currentRoute.hash == "#code-page" ||
+        this.$router.currentRoute.hash == ""
+      ) {
         this.$refs.codeView.goForward();
       } else if (this.$router.currentRoute.hash == "#photo-page") {
         this.$refs.photoView.goForward();
@@ -111,7 +124,10 @@ export default {
       //    this.$refs.view.goForward();
     },
     goBackward: function() {
-      if (this.$router.currentRoute.hash == "#code-page" || this.$router.currentRoute.hash == "") {
+      if (
+        this.$router.currentRoute.hash == "#code-page" ||
+        this.$router.currentRoute.hash == ""
+      ) {
         this.$refs.codeView.goBackward();
       } else if (this.$router.currentRoute.hash == "#photo-page") {
         this.$refs.photoView.goBackward();
@@ -132,7 +148,10 @@ export default {
     },
     scrollNav: function(hashtag) {
       if (this.$route.hash == hashtag) {
-        window.scrollTo({ top: document.querySelector(hashtag).offsetTop, behavior: "smooth" });
+        window.scrollTo({
+          top: document.querySelector(hashtag).offsetTop,
+          behavior: "smooth"
+        });
       } else {
         this.$router.push(hashtag);
       }
