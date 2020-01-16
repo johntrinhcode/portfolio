@@ -24,7 +24,7 @@
           <p class="text-center text-white">{{ description }}</p>
         </div>
 
-        <div class="flex mx-auto items-center mt-4 z-10">
+        <div class="flex h-full mx-auto items-center mt-4 z-10">
           <a :href="link" target="_blank" rel="noopener noreferrer">
             <button
               v-if="link != ''"
@@ -141,20 +141,5 @@ export default {
 .filter {
   opacity: 0.1;
   background: black;
-}
-
-#project-image {
-  height: 33%;
-}
-#project-details {
-  height: 67%;
-  line-height: 1;
-  background-color: rgb(49, 49, 49);
-}
-#view-project-button {
-  background-color: rgb(75, 75, 75);
-}
-#implementation-detail {
-  background-color: #3f3f3f;
 }
 </style>
