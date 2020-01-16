@@ -22,7 +22,7 @@
         -->
         <p class="text-center text-white z-10 mt-2">{{ description }}</p>
 
-        <div class="flex mx-auto items-center">
+        <div class="flex mx-auto items-center h-6">
           <button
             v-if="link != ''"
             id="explore-button"
