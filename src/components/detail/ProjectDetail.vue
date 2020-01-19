@@ -5,7 +5,7 @@
       <div class="filter absolute w-full h-full z-10"></div>
       <v-lazy-image :src="image" class="h-full w-full object-cover z-0" />
       <div
-        class="absolute flex flex-col h-32 w-64 md:w-128 mx-auto right-0 left-0 card text-sm text-left"
+        class="absolute flex flex-col w-64 md:w-128 mx-auto right-0 left-0 card text-sm text-left"
       >
         <div class="z-10">
           <p class="text-center text-white text-6xl font-bold font-head leading-none">{{ title }}</p>
