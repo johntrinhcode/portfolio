@@ -28,10 +28,11 @@
             <Git class="w-6 h-6 fill-current text-white" />
           </a>
         </div>
-        <div class="flex mx-auto z-10 border border-white p-1 mt-4">
-          <div v-for="tech in technologies" :key="tech" class="h-full">
+        <div class="flex mx-auto z-10 mt-4">
+          <div v-for="tech in technologies" :key="tech" class="h-full flex flex-col mx-1">
             <a :title="tech">
-              <component :is="icons[tech]" class="w-4 h-4 fill-current text-white mx-1"></component>
+              <component :is="icons[tech]" class="w-4 h-4 fill-current text-white mx-auto"></component>
+              <p class="text-xs text-white text-cente">{{tech}}</p>
             </a>
           </div>
         </div>
@@ -47,6 +48,7 @@ import Git from "../../assets/icons/github.svg";
 import FigmaIcon from "../../assets/icons/figma.svg";
 import MongoIcon from "../../assets/icons/mongodb.svg";
 import NodeIcon from "../../assets/icons/node.svg";
+import NuxtIcon from "../../assets/icons/nuxt.svg";
 import PostgresIcon from "../../assets/icons/postgresql.svg";
 import VueIcon from "../../assets/icons/vue.svg";
 import FlutterIcon from "../../assets/icons/flutter.svg";
@@ -59,6 +61,7 @@ export default {
     FigmaIcon,
     MongoIcon,
     NodeIcon,
+    NuxtIcon,
     PostgresIcon,
     VueIcon,
     FlutterIcon
@@ -97,6 +100,7 @@ export default {
       icons: {
         "Vue.js": VueIcon,
         "Node.js": NodeIcon,
+        "Nuxt.js": NuxtIcon,
         MongoDB: MongoIcon,
         PostgreSQL: PostgresIcon,
         Figma: FigmaIcon,
