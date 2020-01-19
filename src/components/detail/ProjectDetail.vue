@@ -25,7 +25,7 @@
           <p class="text-center text-white">{{ description }}</p>
         </div>
 
-        <div class="flex mx-auto items-center mt-2 z-10">
+        <div class="flex mx-auto mt-2 z-10">
           <a v-if="link != ''" :href="link" target="_blank" rel="noopener noreferrer" class="mx-1">
             <Globe class="w-6 h-6 fill-current text-white" />
           </a>
@@ -40,6 +40,7 @@
             <Git class="w-6 h-6 fill-current text-white" />
           </a>
         </div>
+        <p class="text-white text-center z-10">test</p>
       </div>
     </div>
   </div>
