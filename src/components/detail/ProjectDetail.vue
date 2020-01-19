@@ -9,10 +9,21 @@
       >
         <div class="z-10">
           <p class="text-center text-white text-6xl font-bold font-head leading-none">{{ title }}</p>
-          <p class="text-center text-xs text-white leading-none">{{ date }}</p>
-          <p class="text-center text-white">{{ description }}</p>
         </div>
+        <div class="flex mx-auto z-10 mt-1">
+          <div v-for="tech in technologies" :key="tech" class="h-full flex flex-col mx-1">
+            <a :title="tech">
+              <component :is="icons[tech]" class="w-4 h-4 fill-current text-white mx-auto"></component>
+              <p class="text-xs text-white text-center">{{tech}}</p>
+            </a>
+          </div>
+        </div>
+        <p
+          id="date-label"
+          class="text-center text-xs text-white leading-none font-bold z-10"
+        >{{ date }}</p>
 
+        <p class="text-center text-white mt-4 z-10">{{ description }}</p>
         <div class="flex mx-auto mt-2 z-10">
           <a v-if="link != ''" :href="link" target="_blank" rel="noopener noreferrer" class="mx-1">
             <Globe class="w-6 h-6 fill-current text-white" />
@@ -27,14 +38,6 @@
           >
             <Git class="w-6 h-6 fill-current text-white" />
           </a>
-        </div>
-        <div class="flex mx-auto z-10 mt-4">
-          <div v-for="tech in technologies" :key="tech" class="h-full flex flex-col mx-1">
-            <a :title="tech">
-              <component :is="icons[tech]" class="w-4 h-4 fill-current text-white mx-auto"></component>
-              <p class="text-xs text-white text-cente">{{tech}}</p>
-            </a>
-          </div>
         </div>
       </div>
     </div>
@@ -135,5 +138,9 @@ export default {
 .filter {
   opacity: 0.1;
   background: black;
+}
+
+#date-label {
+  letter-spacing: 0.05rem;
 }
 </style>
