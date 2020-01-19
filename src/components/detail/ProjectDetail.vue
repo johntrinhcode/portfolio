@@ -40,7 +40,6 @@
             <Git class="w-6 h-6 fill-current text-white" />
           </a>
         </div>
-        <p class="text-white text-center z-10">test</p>
       </div>
     </div>
   </div>
