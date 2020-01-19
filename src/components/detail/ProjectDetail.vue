@@ -7,21 +7,9 @@
       <div
         class="absolute flex flex-col h-32 w-64 md:w-128 mx-auto right-0 left-0 card text-sm text-left"
       >
-        <p class="text-center text-white text-6xl font-bold font-head leading-none z-10">{{ title }}</p>
-        <p class="text-center text-xs text-white z-10">{{ date }}</p>
-        <!--
-        <div class="flex mx-auto z-10">
-          <div v-for="tech in technologies" :key="tech" class="h-full">
-            <component
-              :is="icons[tech]"
-              class="w-4 h-4 fill-current text-white mx-1"
-              :aria-placeholder="tech"
-            ></component>
-          </div>
-        </div>
-        -->
-
         <div class="z-10">
+          <p class="text-center text-white text-6xl font-bold font-head leading-none">{{ title }}</p>
+          <p class="text-center text-xs text-white leading-none">{{ date }}</p>
           <p class="text-center text-white">{{ description }}</p>
         </div>
 
@@ -39,6 +27,13 @@
           >
             <Git class="w-6 h-6 fill-current text-white" />
           </a>
+        </div>
+        <div class="flex mx-auto z-10 border border-white p-1 mt-4">
+          <div v-for="tech in technologies" :key="tech" class="h-full">
+            <a :title="tech">
+              <component :is="icons[tech]" class="w-4 h-4 fill-current text-white mx-1"></component>
+            </a>
+          </div>
         </div>
       </div>
     </div>
