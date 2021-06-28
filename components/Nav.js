@@ -1,13 +1,28 @@
 import React from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
-class Nav extends React.Component {
-    render() {
-        return <div className="w-full flex flex-row h-16 items-center bg-blue-400">
-            <span>Home</span>
-            <span>Projects</span>
-            <span>Contact</span>
-        </div>
-    }
-}
+export default function Nav() {
+    const router = useRouter();
+    const { pid } = router.query;
 
-export default Nav;
+    return (
+        <nav className="fixed top-0 z-20 w-full flex px-8 self-end justify-end flex-row space-x-8 h-16 items-center text-gray-400 bg-white">
+            <Link href="/">
+                <span className="cursor-pointer hover:text-blue-300">Home</span>
+            </Link>
+
+            <Link href="#blog">
+                <span className="cursor-pointer hover:text-blue-300">Blog</span>
+            </Link>
+
+            <Link href="#projects">
+                <span className="cursor-pointer hover:text-blue-300">Projects</span>
+            </Link>
+
+            <Link href="#contact">
+                <span className="cursor-pointer hover:text-blue-300">Contact</span>
+            </Link>
+        </nav>
+    );
+};
