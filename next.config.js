@@ -1,10 +1,11 @@
+const withPlugins = require('next-compose-plugins')
 const withMdxEnhanced = require('next-mdx-enhanced')
 
 const withMDX = require("@next/mdx")({
   extension: /\.mdx?$/
 });
   
-module.exports = withMdxEnhanced({
+const mdxConfig = withMdxEnhanced({
   layoutPath: 'layouts',
   defaultLayout: true,
   fileExtensions: ['mdx'],
@@ -16,5 +17,16 @@ module.exports = withMdxEnhanced({
     phase: 'prebuild|loader|both',
   },
   reExportDataFetching: false,
+  target: 'serverless'
 })();
-  
+
+const nextConfig = {
+  target: 'serverless'
+}
+
+module.exports = withPlugins(
+  [
+    mdxConfig
+  ],
+  nextConfig
+)
