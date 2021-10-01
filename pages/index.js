@@ -52,7 +52,7 @@ export default function Home({ latestPosts }) {
             </div>
 
             {/* On larger screens, image comes after hero text. */}
-            <div className="w-0 md:w-1/3 h-0 md:h-screen flex items-center justify-end">
+            <div className="w-0 md:w-1/3 h-0 md:h-screen flex items-center justify-end invisible md:visible">
               <div className="relative w-0 md:w-48 h-0 md:h-48">
               <div className="tape-top-left"></div>
               <div className="tape-bottom-right"></div>
