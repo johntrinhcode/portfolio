@@ -26,7 +26,7 @@ export default function Home({ latestPosts }) {
       <main className="w-screen flex flex-col items-center justify-center">
         <Nav isHomeVisible={isHomeVisible} isBlogVisible={isBlogVisible} isProjectsVisible={isProjectsVisible} isContactVisible={isContactVisible} />
         <InView className="w-full h-screen" threshold={0.5} onChange={(inView, entry) => setIsHomeVisible(inView)}>
-          <div className="relative w-full h-screen flex flex-col md:flex-row items-center justify-center px-10 md:px-36 lg:px-64">
+          <div id="home" className="relative w-full h-screen flex flex-col md:flex-row items-center justify-center px-10 md:px-36 lg:px-64">
             {/* On small screens, image comes before hero text. */}
             <div className="w-full md:w-0 h-screen md:h-0 flex flex-col items-center justify-end">
               <div className="w-48 h-48 md:invisible">

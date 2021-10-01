@@ -10,7 +10,7 @@ export default function Nav(props) {
 
     return (
         <nav className="fixed top-0 z-20 w-full flex px-8 self-end justify-end flex-row space-x-8 h-16 items-center text-gray-400 bg-white">
-            <Link href="/">
+            <Link href="/#home">
                 <div className="relative flex flex-col">
                     <a className="cursor-pointer hover:text-blue-300">Home</a>
                     { homeUnderline }
