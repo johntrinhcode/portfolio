@@ -26,15 +26,15 @@ export default function Home({ latestPosts }) {
       <main className="w-screen flex flex-col items-center justify-center">
         <Nav isHomeVisible={isHomeVisible} isBlogVisible={isBlogVisible} isProjectsVisible={isProjectsVisible} isContactVisible={isContactVisible} />
         <InView className="w-full h-screen" threshold={0.5} onChange={(inView, entry) => setIsHomeVisible(inView)}>
-          <div id="home" className="relative w-full h-screen flex flex-col md:flex-row items-center justify-center px-10 md:px-36 lg:px-64">
+          <div id="home" className="relative w-full h-full flex flex-col md:flex-row items-center justify-center px-10 md:px-36 lg:px-64">
             {/* On small screens, image comes before hero text. */}
-            <div className="w-full md:w-0 h-screen md:h-0 flex flex-col items-center justify-end">
+            <div className="w-full md:w-0 h-1/2 md:h-0 flex flex-col items-center justify-end bg-red-300">
               <div className="w-48 h-48 md:invisible">
                 <img src="image_1.png"></img>
               </div>
             </div>
 
-            <div className="w-full md:w-2/3 h-screen flex flex-col items-center justify-start md:justify-center mt-10 md:mt-0">
+            <div className="w-full bg-blue-300 md:w-2/3 h-1/2 flex flex-col items-center justify-start md:justify-center mt-10 md:mt-0">
               <div className="w-full">
                 <h1 className="z-10 tracking-tighter font-display font-bold text-6xl text-center md:text-left">
                   <span className="text-gray-400">Hey, i'm </span>
