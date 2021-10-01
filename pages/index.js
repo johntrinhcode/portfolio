@@ -16,8 +16,6 @@ export default function Home({ latestPosts }) {
   let [isBlogVisible, setIsBlogVisible] = useState(false);
   let [isProjectsVisible, setIsProjectsVisible] = useState(false);
   let [isContactVisible, setIsContactVisible] = useState(false);
-
-  console.log(latestPosts);
   
   return (
     <div className="w-full h-full">
@@ -85,12 +83,6 @@ export default function Home({ latestPosts }) {
 
         <Footer />
       </main>
-
-{/*
-
-      <Footer />
-
-*/}
     </div>
   )
 }

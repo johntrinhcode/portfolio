@@ -42,10 +42,6 @@ export default function BlogHome({ allPosts }) {
     setCurrentPage(totalPages - 1);
   }
 
-  console.log('Current Page: ' + currentPage);
-  console.log('Items per Page: ' + itemsPerPage);
-  console.log('Total Page: ' + totalPages);
-  console.log(getPostsForCurrentPage(allPosts, currentPage, itemsPerPage));
   const getTimestamp = (timestamp) => {
     const date = new Date(timestamp);
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
