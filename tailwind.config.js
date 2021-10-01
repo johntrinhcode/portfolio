@@ -3,7 +3,8 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      'display': ['Helvetica']
+      'display': ['Helvetica'],
+      'handwriting': ['Shadows Into Light']
     },
     extend: {
       
