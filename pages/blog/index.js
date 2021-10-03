@@ -49,9 +49,9 @@ export default function BlogHome({ allPosts }) {
   }
 
   return (
-    <div className="h-full">
-      <Nav isHomeVisible={false} isBlogVisible={false} isProjectsVisible={false} isContactVisible={false} />
-      <section className="px-4 md:px-36 lg:px-64 pt-24">
+    <div className="h-full w-screen flex flex-col items-center justify-center">
+      <Nav isHomeVisible={false} isBlogVisible={true} isProjectsVisible={false} isContactVisible={false} />
+      <section className="w-full px-4 md:px-36 lg:px-64 pt-24">
         <span className="flex flex-row bg-gray-100 p-4 rounded-md">
           <span className="w-3/4 text-gray-800 flex flex-row tracking-tight font-display space-x-2 items-end">
             <Link href="/blog"><span className="text-gray-600 font-normal tracking-normal cursor-pointer">Posts</span></Link>

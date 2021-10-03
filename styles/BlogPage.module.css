@@ -1,3 +1,7 @@
+.blogpage {
+  @apply w-screen flex flex-col items-center justify-center;
+}
+
 .blogpage h1, .blogpage h2, .blogpage h3 {
   font-size: revert;
   line-height: revert;
