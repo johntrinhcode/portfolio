@@ -2,7 +2,9 @@
   @apply w-screen flex flex-col items-center justify-center;
 }
 
-.blogpage h1, .blogpage h2, .blogpage h3 {
+.blogpage h1,
+.blogpage h2,
+.blogpage h3 {
   font-size: revert;
   line-height: revert;
   @apply font-display font-semibold text-gray-600;
@@ -41,10 +43,10 @@
   margin-bottom: 0px;
 }
 
-.blogpage br { 
-    display: block;
+.blogpage br {
+  display: block;
   margin-bottom: 2px;
-  font-size:2px;
+  font-size: 2px;
   line-height: 2px;
 }
 
