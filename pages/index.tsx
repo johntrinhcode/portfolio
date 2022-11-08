@@ -20,7 +20,7 @@ export default function Home({ song }: { projects: Project[]; song: Song }) {
       <main className="flex flex-col gap-8 h-full w-full">
         <section className="flex flex-wrap gap-8 items-center w-full h-32 text-gray-700 md:p-4 rounded-md">
           <div className="relative w-24 h-24 rounded-full overflow-hidden">
-            <Image layout="fill" src="/me.png" alt="A picture of me." />
+            <Image fill src="/me.png" alt="A picture of me." />
           </div>
           <div className="flex flex-col flex-1">
             <span className="flex items-center gap-2">
