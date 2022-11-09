@@ -7,6 +7,7 @@ import { getProjects, Project } from 'lib/projects';
 import { getCurrentlyPlaying, Song } from 'lib/spotify';
 import Head from 'next/head';
 import Image from 'next/image';
+import path from 'path';
 import History from '../components/History';
 
 export default function Home({ song }: { projects: Project[]; song: Song }) {
@@ -60,7 +61,11 @@ export async function getServerSideProps(): Promise<{
   props: { projects: Project[]; song: Song | null };
 }> {
   const song = await getCurrentlyPlaying();
-  const projects = await getProjects();
+
+  // We need to explicitly call path.resolve() in getServerSideProps to let Next
+  // know to include our MDX files in the client bundle.
+  const projectsDirectory = path.resolve(process.cwd(), 'pages/projects');
+  const projects = await getProjects(projectsDirectory);
 
   return {
     props: {
