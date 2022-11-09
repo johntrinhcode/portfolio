@@ -62,9 +62,9 @@ export async function getServerSideProps(): Promise<{
 }> {
   const song = await getCurrentlyPlaying();
 
-  // We need to explicitly call path.resolve() in getServerSideProps to let Next
+  // We need to explicitly call path.join() in getServerSideProps to let Next
   // know to include our MDX
-  path.resolve(process.cwd(), 'pages/projects/example-project.mdx');
+  path.join(process.cwd(), 'pages/projects/example-project.mdx');
   const projects = await getProjects();
 
   return {
