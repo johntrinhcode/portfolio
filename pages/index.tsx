@@ -56,7 +56,7 @@ export default function Home({ song }: { projects: Project[]; song: Song }) {
   );
 }
 
-export async function getStaticProps(): Promise<{
+export async function getServerSideProps(): Promise<{
   props: { projects: Project[]; song: Song | null };
 }> {
   const song = await getCurrentlyPlaying();
