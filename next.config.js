@@ -21,4 +21,7 @@ module.exports = withMDX({
       },
     ],
   },
+  serverRuntimeConfig: {
+    PROJECT_ROOT: __dirname,
+  },
 });
