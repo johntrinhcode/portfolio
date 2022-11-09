@@ -63,9 +63,9 @@ export async function getServerSideProps(): Promise<{
   const song = await getCurrentlyPlaying();
 
   // We need to explicitly call path.resolve() in getServerSideProps to let Next
-  // know to include our MDX files in the client bundle.
-  const projectsDirectory = path.resolve(process.cwd(), 'pages/projects');
-  const projects = await getProjects(projectsDirectory);
+  // know to include our MDX
+  path.resolve(process.cwd(), 'pages/projects/example-project.mdx');
+  const projects = await getProjects();
 
   return {
     props: {

@@ -2,7 +2,8 @@ import { promises as fs } from 'fs';
 import grayMatter from 'gray-matter';
 import path from 'path';
 
-export const getProjects = async (projectsDirectory: string) => {
+export const getProjects = async () => {
+  const projectsDirectory = path.resolve(process.cwd(), 'pages/projects');
   const filenames = await fs.readdir(projectsDirectory);
   const files = await Promise.all(
     filenames.map(async (filename) => {
