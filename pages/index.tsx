@@ -2,12 +2,11 @@ import CurrentlyPlaying from 'components/CurrentlyPlaying';
 import Projects from 'components/Projects';
 import TabItem from 'components/TabItem';
 import Tabs from 'components/Tabs';
-import { getProjects, Project } from 'lib/projects';
+import { Project } from 'lib/projects';
 
 import { getCurrentlyPlaying, Song } from 'lib/spotify';
 import Head from 'next/head';
 import Image from 'next/image';
-import path from 'path';
 import History from '../components/History';
 
 export default function Home({ song }: { projects: Project[]; song: Song }) {
@@ -58,18 +57,18 @@ export default function Home({ song }: { projects: Project[]; song: Song }) {
 }
 
 export async function getServerSideProps(): Promise<{
-  props: { projects: Project[]; song: Song | null };
+  props: { song: Song | null };
 }> {
   const song = await getCurrentlyPlaying();
 
-  // We need to explicitly call path.join() in getServerSideProps to let Next
-  // know to include our MDX
-  path.join(process.cwd(), 'pages/projects/example-project.mdx');
-  const projects = await getProjects();
+  // TODO: We can't actually read MDX files from a SSR page.
+  // Can probably opt for providing a hardcoded slug to the blog post at this index page.
+  // We can fetch the files and create a table of contents SSG page later though.
+
+  //   const projects = await getProjects();
 
   return {
     props: {
-      projects,
       song,
     },
   };

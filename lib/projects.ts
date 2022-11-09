@@ -1,14 +1,9 @@
 import { promises as fs } from 'fs';
 import grayMatter from 'gray-matter';
-import getConfig from 'next/config';
 import path from 'path';
-const { serverRuntimeConfig } = getConfig();
 
 export const getProjects = async () => {
-  const projectsDirectory = path.resolve(
-    serverRuntimeConfig.PROJECT_ROOT,
-    'pages/projects'
-  );
+  const projectsDirectory = path.resolve(process.cwd(), 'pages/projects');
   const filenames = await fs.readdir(projectsDirectory);
   const files = await Promise.all(
     filenames.map(async (filename) => {
