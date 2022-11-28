@@ -1,24 +1,23 @@
 import { Song } from 'lib/spotify';
 
-const CurrentlyPlaying = ({ song }: { song?: Song }) => {
+type CurrentlyPlayingProps = JSX.IntrinsicElements['section'] & {
+  song?: Song;
+};
+const CurrentlyPlaying = ({ song, className }: CurrentlyPlayingProps) => {
   return (
-    <section>
+    <section className={className}>
       {song && song.isPlaying ? (
-        <span className="flex items-center gap-2 text-gray-700">
-          <a
-            rel="noreferrer"
-            target="_blank"
-            href={song.songUrl}
-            className="w-[175px] flex-none flex items-center gap-2 bg-gray-700 p-1 rounded-full"
-          >
-            <SpotifyIcon className="w-4 h-4" />
-            <span className="flex-1 text-center uppercase text-xs text-gray-300 pr-2">
-              Currently playing
-            </span>
-          </a>
-          <b className="truncate">{song.title}</b> by{' '}
-          <span className="truncate">{song.artist}</span>
-        </span>
+        <a
+          rel="noreferrer"
+          target="_blank"
+          href={song.songUrl}
+          className="w-fit max-w-[300px] px-2 py-1 flex-none flex items-center gap-2 bg-gray-700 text-gray-300 rounded-full text-xs"
+        >
+          <SpotifyIcon className="flex-none w-4 h-4" />
+          <span className="truncate">
+            <b className="truncate">{song.title}</b> by {song.artist}
+          </span>
+        </a>
       ) : (
         <span className="flex items-center gap-2 text-gray-700">
           <div className="flex items-center gap-2 bg-gray-700 p-1 rounded-full">

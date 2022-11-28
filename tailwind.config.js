@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      display: ['Helvetica'],
+      display: ['Inter', 'sans-serif'],
     },
     extend: {},
   },
