@@ -2,7 +2,7 @@ import CurrentlyPlaying from 'components/currently-playing';
 import { Project } from 'lib/projects';
 import { AiFillLinkedin, AiFillMail } from 'react-icons/ai';
 
-import { Logo } from 'components/Logo';
+import { Logo } from 'components/logo';
 import { getCurrentlyPlaying, Song } from 'lib/spotify';
 import Head from 'next/head';
 

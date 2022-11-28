@@ -1,5 +1,5 @@
 import { MDXProvider } from '@mdx-js/react';
-import { Screensaver } from 'components/Screensaver';
+import { Screensaver } from 'components/screensaver';
 import { MDXComponents } from 'mdx/types';
 import { AppProps } from 'next/app';
 import '../styles/globals.css';
