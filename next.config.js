@@ -1,32 +1,32 @@
-const withPlugins = require('next-compose-plugins')
-const withMdxEnhanced = require('next-mdx-enhanced')
-
-const withMDX = require("@next/mdx")({
-  extension: /\.mdx?$/
-});
-  
-const mdxConfig = withMdxEnhanced({
-  layoutPath: 'layouts',
-  defaultLayout: true,
-  fileExtensions: ['mdx'],
-  remarkPlugins: [],
-  rehypePlugins: [],
-  usesSrc: false,
-  extendFrontMatter: {
-    process: (mdxContent, frontMatter) => {},
-    phase: 'prebuild|loader|both',
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+    // If you use `MDXProvider`, uncomment the following line.
+    providerImportSource: '@mdx-js/react',
   },
-  reExportDataFetching: false,
-  target: 'serverless'
-})();
+});
 
-const nextConfig = {
-  target: 'serverless'
-}
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const withTM = require('next-transpile-modules')(['three']);
 
-module.exports = withPlugins(
-  [
-    mdxConfig
-  ],
-  nextConfig
-)
+module.exports = withTM(
+  withMDX({
+    // Append the default value with md extensions
+    pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'i.scdn.co',
+          pathname: '/image/**',
+        },
+      ],
+    },
+    serverRuntimeConfig: {
+      PROJECT_ROOT: __dirname,
+    },
+  })
+);

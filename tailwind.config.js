@@ -1,17 +1,15 @@
+/** @type {import('tailwindcss').Config} */
+
 module.exports = {
-  purge: ['./pages/**/*.js', './components/**/*.js', './layouts/*.js'],
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    './pages/**/*.{html,js,ts,tsx}',
+    './components/**/*.{html,js,ts,tsx}',
+  ],
   theme: {
     fontFamily: {
-      'display': ['Helvetica'],
-      'handwriting': ['Shadows Into Light']
+      display: ['Inter', 'sans-serif'],
     },
-    extend: {
-      
-    },
-  },
-  variants: {
     extend: {},
   },
-  plugins: [require("@tailwindcss/typography")],
-}
+  plugins: [],
+};
