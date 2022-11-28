@@ -8,7 +8,7 @@ import Head from 'next/head';
 
 export default function Home({ song }: { projects: Project[]; song: Song }) {
   return (
-    <div className="flex min-h-screen w-screen px-4 lg:px-64 py-12">
+    <div className="flex w-screen px-4 lg:px-64 py-12">
       <Head>
         <title>John Trinh</title>
         <meta name="description" content="John Trinh, frontend developer." />

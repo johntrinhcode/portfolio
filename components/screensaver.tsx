@@ -31,7 +31,7 @@ const TorusPoints = () => {
   });
 
   return (
-    <points ref={geometry} position={new Vector3(-18, 0, 0)}>
+    <points ref={geometry} position={new Vector3(-15, 0, 0)}>
       <torusGeometry args={[10, 5, 40, 100]} />
       <pointsMaterial size={0.005} />
     </points>
