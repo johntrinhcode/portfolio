@@ -1,7 +1,6 @@
 import { MDXProvider } from '@mdx-js/react';
 import { Screensaver } from 'components/screensaver';
 import { MDXComponents } from 'mdx/types';
-import { AppProps } from 'next/app';
 import '../styles/globals.css';
 import '../styles/tailwind.css';
 
@@ -15,11 +14,11 @@ const components: MDXComponents = {
   h1: Heading1,
 };
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp() {
   return (
     <MDXProvider components={components}>
       <Screensaver />
-      <Component {...pageProps} />
+      {/* <Component {...pageProps} /> */}
     </MDXProvider>
   );
 }
