@@ -1,6 +1,7 @@
 import { OrthographicCamera } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { BufferGeometry, Material, Points, Vector3 } from 'three';
 
 export const Screensaver = () => {
@@ -8,9 +9,12 @@ export const Screensaver = () => {
 
   return (
     <>
+      <div
+        id="gradient-layer-1"
+        className="w-screen h-screen absolute top-0 -z-10"
+      />
       <div className="h-screen w-screen absolute top-0">
         <Canvas>
-          <color attach="background" args={[0, 0, 0]} />
           <OrthographicCamera
             ref={cam}
             makeDefault
@@ -27,6 +31,7 @@ export const Screensaver = () => {
 
 const ROTATION_SPEED = 0.00125;
 const TorusPoints = () => {
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
   const geometry = useRef<Points<BufferGeometry, Material | Material[]>>();
 
   useFrame(() => {
@@ -36,7 +41,7 @@ const TorusPoints = () => {
   return (
     <points ref={geometry} position={new Vector3(-15, 0, 0)}>
       <torusGeometry args={[10, 5, 40, 100]} />
-      <pointsMaterial size={1} />
+      <pointsMaterial size={isTabletOrMobile ? 1 : 0.005} />
     </points>
   );
 };
