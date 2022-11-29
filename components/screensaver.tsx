@@ -1,4 +1,4 @@
-import { OrthographicCamera } from '@react-three/drei';
+import { Box, OrthographicCamera } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 import { BufferGeometry, Material, Points, Vector3 } from 'three';
@@ -18,6 +18,7 @@ export const Screensaver = () => {
             position={[0, 0, 10]}
           />
           <TorusPoints />
+          <Box args={[5, 5, 5]} />
           <pointLight args={[0xffffff, 0.1]} position={new Vector3(2, 3, 4)} />
         </Canvas>
       </div>
