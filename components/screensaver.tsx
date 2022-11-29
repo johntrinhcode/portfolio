@@ -7,18 +7,24 @@ export const Screensaver = () => {
   const cam = useRef();
 
   return (
-    <div id="gradient-layer-1" className="w-screen absolute -z-10">
-      <Canvas>
-        <OrthographicCamera
-          ref={cam}
-          makeDefault
-          zoom={40}
-          position={[0, 0, 10]}
-        />
-        <TorusPoints />
-        <pointLight args={[0xffffff, 0.1]} position={new Vector3(2, 3, 4)} />
-      </Canvas>
-    </div>
+    <>
+      <div
+        id="gradient-layer-1"
+        className="w-screen h-screen absolute top-0 -z-10"
+      />
+      <div className="h-screen w-screen absolute top-0">
+        <Canvas>
+          <OrthographicCamera
+            ref={cam}
+            makeDefault
+            zoom={40}
+            position={[0, 0, 10]}
+          />
+          <TorusPoints />
+          <pointLight args={[0xffffff, 0.1]} position={new Vector3(2, 3, 4)} />
+        </Canvas>
+      </div>
+    </>
   );
 };
 
