@@ -8,12 +8,9 @@ export const Screensaver = () => {
 
   return (
     <>
-      <div
-        id="gradient-layer-1"
-        className="w-screen h-screen absolute top-0 -z-10"
-      />
       <div className="h-screen w-screen absolute top-0">
         <Canvas>
+          <color attach="background" args={[0, 0, 0]} />
           <OrthographicCamera
             ref={cam}
             makeDefault
