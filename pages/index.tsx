@@ -8,14 +8,14 @@ import Head from 'next/head';
 
 export default function Home({ song }: { projects: Project[]; song: Song }) {
   return (
-    <div className="flex w-screen px-4 lg:px-64 py-12">
+    <div className="flex w-screen px-6 py-[4.5rem] md:px-32 xl:px-60">
       <Head>
         <title>John Trinh</title>
         <meta name="description" content="John Trinh, frontend developer." />
       </Head>
 
-      <main className="flex flex-col gap-8 h-full w-full">
-        <section className="flex flex-wrap gap-8 items-center w-full h-32 text-white p-4 rounded-md bg-slate-500/5 backdrop-blur-[1px]">
+      <main className="flex flex-col gap-4 h-full w-full">
+        <section className="flex flex-wrap gap-8 items-center w-full h-32 text-white p-4 rounded-md bg-slate-500/5 border border-slate-200/5 backdrop-blur-[1px]">
           <Logo fill="rgba(55, 65, 81, .75)" stroke={'rgba(55, 65, 81, .5)'} />
           <div className="flex flex-col flex-1">
             <span className="flex items-center gap-2">
@@ -38,7 +38,7 @@ export default function Home({ song }: { projects: Project[]; song: Song }) {
           </div>
         </section>
 
-        <section className="text-white/70 bg-slate-500/5 backdrop-blur-[1px] rounded-md p-4 text-sm">
+        <section className="text-white/70 bg-slate-500/5 border border-slate-200/5 backdrop-blur-[1px] rounded-md p-4 text-sm">
           Still working on this page, but feel free to reach out to me for more
           information!
         </section>
