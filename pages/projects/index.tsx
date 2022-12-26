@@ -34,7 +34,7 @@ const Page = ({ projects }: PageProps) => {
 
 export default Page;
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const projects = await getProjects();
 
   return {
