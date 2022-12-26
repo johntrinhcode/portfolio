@@ -11,7 +11,7 @@ const Page = ({ projects }: PageProps) => {
     <div className="flex flex-col gap-4 md:py-6 md:px-32 xl:px-60">
       <main className="flex flex-col gap-4 h-full w-full">
         <Breadcrumbs />
-        <div className="flex flex-col px-6">
+        <div className="flex flex-col">
           {projects.map((project, index) => (
             <Link
               key={index}
