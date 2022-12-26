@@ -11,9 +11,9 @@ export const Screensaver = () => {
     <>
       <div
         id="gradient-layer-1"
-        className="w-screen h-screen fixed top-0 -z-10"
+        className="w-screen h-full fixed top-0 -z-10"
       />
-      <div className="h-screen w-screen fixed top-0 -z-[5]">
+      <div className="h-full w-screen fixed top-0 -z-[5]">
         <Canvas>
           <OrthographicCamera
             ref={cam}
