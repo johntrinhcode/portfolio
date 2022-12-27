@@ -1,5 +1,5 @@
 import { Breadcrumbs } from 'components/breadcrumbs';
-import { PostList } from 'components/projects';
+import { PostList } from 'components/post-list';
 import { getPosts, Post } from 'lib/posts';
 
 type PageProps = {
