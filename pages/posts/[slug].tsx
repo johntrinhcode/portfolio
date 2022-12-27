@@ -1,20 +1,20 @@
 import { mdxComponents } from 'components/mdx/mdx-components';
 import { PostLayout } from 'layouts/post-layout';
-import { getProjectBySlug, getProjects, Project } from 'lib/projects';
+import { getPostBySlug, getPosts, Post } from 'lib/posts';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 
 type PageProps = {
-  project: Project;
+  post: Post;
   source: MDXRemoteSerializeResult<
     Record<string, unknown>,
     Record<string, string>
   >;
 };
 
-const Page = ({ project, source }: PageProps) => {
+const Page = ({ post, source }: PageProps) => {
   return (
-    <PostLayout project={project}>
+    <PostLayout post={post}>
       <MDXRemote {...source} components={mdxComponents} />
     </PostLayout>
   );
@@ -23,9 +23,9 @@ const Page = ({ project, source }: PageProps) => {
 export default Page;
 
 export async function getStaticPaths() {
-  const projects = await getProjects();
-  const paths = projects.map((project) => {
-    return { params: { slug: project.slug } };
+  const posts = await getPosts();
+  const paths = posts.map((post) => {
+    return { params: { slug: post.slug } };
   });
   return {
     paths,
@@ -34,14 +34,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const project = await getProjectBySlug(context.params.slug);
-  const source = await serialize(project.content, {
+  const post = await getPostBySlug(context.params.slug);
+  const source = await serialize(post.content, {
     mdxOptions: {
       remarkPlugins: [require('remark-prism')],
     },
   });
 
   return {
-    props: { project, source },
+    props: { post, source },
   };
 }

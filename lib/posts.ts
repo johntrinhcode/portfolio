@@ -2,12 +2,12 @@ import { promises as fs } from 'fs';
 import grayMatter from 'gray-matter';
 import path from 'path';
 
-export const getProjects = async () => {
-  const projectsDirectory = path.resolve(process.cwd(), 'mdx/');
-  const filenames = await fs.readdir(projectsDirectory);
+export const getPosts = async () => {
+  const postsDirectory = path.resolve(process.cwd(), 'mdx/');
+  const filenames = await fs.readdir(postsDirectory);
   const files = await Promise.all(
     filenames.map(async (filename) => {
-      const filePath = path.resolve(projectsDirectory, filename);
+      const filePath = path.resolve(postsDirectory, filename);
       const content = await fs.readFile(filePath, 'utf8');
       const matter = grayMatter(content);
       return {
@@ -17,14 +17,14 @@ export const getProjects = async () => {
     })
   );
 
-  const projects: Project[] = files
+  const posts: Post[] = files
     .map((file) => {
       return {
-        path: `/projects/${file.filename.replace('.mdx', '')}`,
+        path: `/posts/${file.filename.replace('.mdx', '')}`,
         timestamp: file.matter.data.timestamp,
         title: file.matter.data.title,
         description: file.matter.data.description,
-        link: '/projects/' + file.matter.data.slug,
+        link: '/posts/' + file.matter.data.slug,
         slug: file.matter.data.slug,
         author: file.matter.data.author,
         content: file.matter.content,
@@ -36,15 +36,15 @@ export const getProjects = async () => {
         new Date(postA.timestamp).valueOf()
     );
 
-  return projects;
+  return posts;
 };
 
-export const getProjectBySlug = async (slug: string) => {
-  const projectsDirectory = path.resolve(process.cwd(), 'mdx/');
-  const filenames = await fs.readdir(projectsDirectory);
+export const getPostBySlug = async (slug: string) => {
+  const postsDirectory = path.resolve(process.cwd(), 'mdx/');
+  const filenames = await fs.readdir(postsDirectory);
   const files = await Promise.all(
     filenames.map(async (filename) => {
-      const filePath = path.resolve(projectsDirectory, filename);
+      const filePath = path.resolve(postsDirectory, filename);
       const content = await fs.readFile(filePath, 'utf8');
       const matter = grayMatter(content);
       return {
@@ -54,14 +54,14 @@ export const getProjectBySlug = async (slug: string) => {
     })
   );
 
-  const project: Project[] = files
+  const post: Post[] = files
     .map((file) => {
       return {
-        path: `/projects/${file.filename.replace('.mdx', '')}`,
+        path: `/posts/${file.filename.replace('.mdx', '')}`,
         timestamp: file.matter.data.timestamp,
         title: file.matter.data.title,
         description: file.matter.data.description,
-        link: '/projects/' + file.matter.data.slug,
+        link: '/posts/' + file.matter.data.slug,
         slug: file.matter.data.slug,
         author: file.matter.data.author,
         content: file.matter.content,
@@ -69,11 +69,11 @@ export const getProjectBySlug = async (slug: string) => {
     })
     .filter((file) => file.slug === slug);
 
-  if (project.length === 0) return null;
-  return project[0];
+  if (post.length === 0) return null;
+  return post[0];
 };
 
-export type Project = {
+export type Post = {
   path: string;
   timestamp: string;
   title: string;

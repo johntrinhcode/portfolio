@@ -1,17 +1,17 @@
 import { Breadcrumbs } from 'components/breadcrumbs';
-import Projects from 'components/projects';
-import { getProjects, Project } from 'lib/projects';
+import { PostList } from 'components/projects';
+import { getPosts, Post } from 'lib/posts';
 
 type PageProps = {
-  projects: Project[];
+  posts: Post[];
 };
 
-const Page = ({ projects }: PageProps) => {
+const Page = ({ posts }: PageProps) => {
   return (
     <div className="flex flex-col gap-4 md:py-6 md:px-32 xl:px-60">
       <main className="flex flex-col gap-4 h-full w-full">
         <Breadcrumbs />
-        <Projects projects={projects} />
+        <PostList posts={posts} />
       </main>
     </div>
   );
@@ -20,9 +20,9 @@ const Page = ({ projects }: PageProps) => {
 export default Page;
 
 export async function getStaticProps() {
-  const projects = await getProjects();
+  const posts = await getPosts();
 
   return {
-    props: { projects },
+    props: { posts },
   };
 }

@@ -1,15 +1,15 @@
 import { Breadcrumbs } from 'components/breadcrumbs';
-import { Project } from 'lib/projects';
+import { Post } from 'lib/posts';
 import Head from 'next/head';
 import Image from 'next/image';
 
-type PostLayoutProps = JSX.IntrinsicElements['div'] & { project: Project };
+type PostLayoutProps = JSX.IntrinsicElements['div'] & { post: Post };
 
-export const PostLayout = ({ project, children }: PostLayoutProps) => {
+export const PostLayout = ({ post, children }: PostLayoutProps) => {
   return (
     <div className="flex flex-col gap-4 md:py-6 md:px-32 xl:px-60">
       <Head>
-        <title>{`${project.title} - John Trinh`}</title>
+        <title>{`${post.title} - John Trinh`}</title>
         <meta name="description" content="John Trinh, frontend developer." />
       </Head>
 
@@ -17,9 +17,9 @@ export const PostLayout = ({ project, children }: PostLayoutProps) => {
 
       <div className="md:rounded-md bg-slate-500/5 backdrop-blur-[1px] text-white/70 border border-slate-200/5">
         <PostHeader
-          title={project.title}
-          author={project.author}
-          timestamp={project.timestamp}
+          title={post.title}
+          author={post.author}
+          timestamp={post.timestamp}
         />
         <PostBody>{children}</PostBody>
       </div>
