@@ -32,8 +32,8 @@ export const getProjects = async () => {
     })
     .sort(
       (postA, postB) =>
-        new Date(postA.timestamp).valueOf() -
-        new Date(postB.timestamp).valueOf()
+        new Date(postB.timestamp).valueOf() -
+        new Date(postA.timestamp).valueOf()
     );
 
   return projects;
