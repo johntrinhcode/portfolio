@@ -27,9 +27,6 @@ export default function Page() {
 	];
 	return (
 		<section className="flex flex-col gap-8">
-			<h1 className="flex flex-wrap items-center gap-2 text-xl">
-				<span>Work</span>
-			</h1>
 			<p className="text-neutral-600">
 				Below is a summary of my professional work experience, you can also
 				download my full resume{" "}

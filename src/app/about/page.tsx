@@ -1,11 +1,9 @@
 import { Slideshow } from "@/components/slideshow";
+import { Link } from "next-view-transitions";
 
 export default function Page() {
 	return (
 		<section className="flex flex-col gap-8 text-neutral-600">
-			<h1 className="flex flex-wrap items-center gap-2 text-xl">
-				<span>About</span>
-			</h1>
 			<Slideshow />
 			<p>
 				I'm <b>John Trinh</b>. A Vietnamese American software developer residing
@@ -26,8 +24,11 @@ export default function Page() {
 			<p>
 				I'm happily engaged to Suong, my fiance. I am also the proud (and busy)
 				parent of 2 awesome Shiba Inus,{" "}
-				<span className="text-yellow-400">Tofu</span> and{" "}
-				<span className="text-red-400">Taro</span>.
+				<Link href="/about/tofu-and-taro">
+					<span className="text-yellow-400">Tofu</span> and{" "}
+					<span className="text-red-400">Taro</span>
+				</Link>
+				.
 			</p>
 		</section>
 	);

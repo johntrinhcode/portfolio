@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -34,13 +35,16 @@ export function Slideshow() {
 			initial={{ opacity: 0, filter: "blur(.25rem)" }}
 			animate={{ opacity: 1, filter: "blur(0rem)" }}
 		>
-			<Image
-				className="rounded-lg"
-				src={images[index].src}
-				alt={images[index].alt}
-				width={300}
-				height={300}
-			/>
+			{images.map((image, i) => (
+				<Image
+					key={image.src}
+					className={clsx("rounded-lg", i !== index && "hidden")}
+					src={image.src}
+					alt={image.alt}
+					width={300}
+					height={300}
+				/>
+			))}
 		</motion.div>
 	);
 }
