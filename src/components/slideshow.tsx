@@ -34,11 +34,7 @@ const images = [
 	/>,
 ];
 
-interface SlideshowProps {
-	baseUrl: string;
-}
-
-export function Slideshow({ baseUrl }: SlideshowProps) {
+export function Slideshow() {
 	const [index, setIndex] = useState(0);
 
 	useEffect(() => {
