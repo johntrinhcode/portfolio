@@ -4,7 +4,7 @@ import { Link } from "next-view-transitions";
 export default function Page() {
 	return (
 		<section className="flex flex-col gap-8 text-neutral-600">
-			<Slideshow baseUrl={process.env.R2_BASE_URL as string} />
+			<Slideshow />
 			<p>
 				I'm <b>John Trinh</b>. A Vietnamese American software developer residing
 				in the Washington D.C metro area.
