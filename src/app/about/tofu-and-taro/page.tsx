@@ -9,15 +9,14 @@ export default function Page() {
 					.fill(0)
 					.map((_, i) => (
 						<div
-							className="relative h-[300px] w-full overflow-hidden rounded-lg"
-							// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 							key={i}
+							className="relative h-[300px] w-full overflow-hidden rounded-lg"
 						>
 							<Image
-								src={`/tt-${i + 1}.jpeg`}
-								alt="image"
+								className="object-cover"
+								src={`${process.env.R2_BASE_URL}/tt-${i + 1}.jpeg`}
+								alt="Tofu and Taro"
 								fill
-								objectFit="cover"
 							/>
 						</div>
 					))}

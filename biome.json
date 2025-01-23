@@ -31,6 +31,9 @@
 						"functions": ["clsx"]
 					}
 				}
+			},
+			"suspicious": {
+				"noArrayIndexKey": "off"
 			}
 		}
 	},
