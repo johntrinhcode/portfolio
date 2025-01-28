@@ -35,7 +35,7 @@ export default function RootLayout({
 						defer
 						strategy="lazyOnload"
 						data-website-id={process.env.UMAMI_WEBSITE_ID}
-						src={process.env.UMAMI_URL}
+						src="/script.js"
 					/>
 				</head>
 				<body

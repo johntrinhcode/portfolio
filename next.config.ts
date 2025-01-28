@@ -1,14 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-	images: {
-		remotePatterns: [
-			{
-				protocol: "https",
-				hostname: "pub-d2c449d80cd44af692a008410e49505e.r2.dev",
-			},
-		],
-	},
+  rewrites: async () => [
+    {
+      source: "/script.js",
+      destination: "https://cloud.umami.is/script.js",
+    },
+  ],
 };
 
 export default nextConfig;
