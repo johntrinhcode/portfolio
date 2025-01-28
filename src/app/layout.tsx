@@ -4,6 +4,7 @@ import "./globals.css";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { ViewTransitions } from "next-view-transitions";
+import Script from "next/script";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -28,6 +29,15 @@ export default function RootLayout({
 	return (
 		<ViewTransitions>
 			<html lang="en">
+				<head>
+					<Script
+						async
+						defer
+						strategy="lazyOnload"
+						data-website-id={process.env.UMAMI_WEBSITE_ID}
+						src={process.env.UMAMI_URL}
+					/>
+				</head>
 				<body
 					className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 				>
